@@ -1,0 +1,205 @@
+% 
+% pres_macros.tex
+%
+% LaTeX macros and shortcuts for my MS presentation
+%
+% -----------------------------------------------------------------------------
+
+\usepackage{color}		
+\usepackage{xspace}
+\usepackage{amsfonts,amssymb,nicefrac}
+\usepackage{xargs}
+
+%% Text shortcuts 
+
+% Presentation acronyms
+\newcommand{\coeffs}{coeffs.\xspace}
+\newcommand{\tmcoeffs}{toy model coeffs.\xspace}
+	
+% Common abbreviations 
+\newcommand{\ie}{i.e.\xspace }
+\newcommand{\eg}{e.g.\xspace }
+\newcommand{\etc}{etc. \@\xspace}
+\newcommand{\esp}{esp.\xspace}
+\newcommand{\wrt}{w.r.t.\xspace}
+\newcommand{\vs}{vs.\xspace}
+
+% Dataset names
+\newcommand{\ccsm}{CCSM 3.0\xspace}
+\newcommand{\hadgem}{HadGEM1\xspace}
+\newcommand{\era}{ERA-40\xspace}
+\newcommand{\ncep}{NCEP-DOE\xspace}
+
+% Common subscripts
+\newcommand{\tm}{\subt{TM}}
+
+% Model variables
+\newcommand{\mrso}{mrso\xspace}
+\newcommand{\mrsos}{mrsos\xspace}
+
+% Common chemical formulae
+\newcommand{\COtwo}{$\text{CO}_\text{2}$\xspace}
+
+% 20th, 21st century
+\newcommand{\twentyth}{20th\xspace}
+\newcommand{\twentyfirst}{21st\xspace}
+% -----------------------------------------------------------------------------
+
+%% Math macros and shortcuts
+
+% 1 point space command (before and after brackets)
+\newcommand{\pt}{\hskip1pt}
+
+% custom side fractions
+\newcommand{\Nfrac}[2]{\raisebox{0.3ex}{$#1$}\big/\raisebox{-0.3ex}{$#2$}}
+
+% inverse
+\newcommand{\inv}{^{-1}}
+\newcommand{\invv}{^{-2}}
+
+% side fractions
+\newcommand{\half}{{\nicefrac{1}{2}}}
+
+% improved over-bar and inner product
+\newcommand{\barr}[2][{}]{\overline{\!#2\,}^{#1}} 
+\newcommand{\innerp}[2]{\big\langle\pt#1,#2\pt\big\rangle}
+
+% statistical operators
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\corr}{corr}
+\DeclareMathOperator*{\Corr}{Corr}
+\DeclareMathOperator*{\proj}{Proj}
+
+% error operator
+\DeclareMathOperator*{\Err}{Err}
+\DeclareMathOperator*{\rms}{RMS}
+
+% sign operator
+\DeclareMathOperator*{\sgn}{sign}
+
+% calculus operators
+\newcommand{\derv}[2]{\frac{\mathrm{d}\hskip1pt{#1}}{\mathrm{d}\hskip0.5pt{#2}}}
+\newcommand{\dervside}[2]{\nicefrac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}
+
+% subscripts in italic text
+\newcommand{\subt}[1]{_{\mathit{#1}}}
+
+% time increment
+\newcommand{\Deltat}{{\Delta\!t}}
+
+% imply and if and only if symbols (with spacing as optional argument)
+\renewcommandx*{\iff}[1][1={}]{{#1}\Longleftrightarrow{#1}}
+% -------------------------------------------------------------------------------
+
+%% Symbols shortcuts
+
+% toy model expression for T' , Var(T) and m' , Var(m)
+\newcommand{\Ttm}{\hat{\!T\,}_\mathit{\hskip-0.65ex tm}'}
+\newcommand{\VarTtm}{\Var(\hat{\!T\,}_\mathit{\hskip-0.65ex tm})}
+\newcommand{\mtm}{\hat{\hskip-0.5pt m\,}_\mathit{\hskip-0.25ex tm}'}
+\newcommand{\Varmtm}{\Var(\hat{\hskip-0.5pt m\,}_\mathit{\hskip-0.25ex tm})}
+
+% radiation forcing (with same subscript size)
+\newcommand{\Fsw}{F_{\raisebox{-0.3ex}{$\scriptstyle{\mathit{sw}}$}}}
+\newcommand{\Flw}{F_{\scriptstyle{\mathit{lw}}}}
+
+% up / down arrows
+\newcommand{\up}{^{\,\,\uparrow}}
+\newcommand{\upp}{^{\,\,\uparrow'}}
+\newcommand{\down}{^{\,\,\downarrow}}
+\newcommand{\downn}{^{\,\,\downarrow'}}
+
+% bar averages shortcuts
+\newcommand{\Tbar}{\barr{T}}
+\newcommand{\mbar}{\barr{m\hskip-1pt}}
+\newcommand{\Fbar}{\barr{F}}
+\newcommand{\Ebar}{\barr{E}}
+\newcommand{\Hsbar}{\barr{H_s}}
+\newcommand{\Flubar}{\barr{\Flu}}
+\newcommand{\Pbar}{\barr{P}}
+\newcommand{\Rbar}{\barr{R}}
+\newcommand{\mbbar}{\barr{m_b}}
+\newcommand{\Xbar}{\barr{X}}
+
+% longwave up term (full, anomaly, anomaly param. residual)
+\newcommand{\Flu}{{F_{\scriptscriptstyle{\mathit{lw}}}
+											^{\scriptscriptstyle\,\,\uparrow}}}
+\newcommand{\Fluu}{F_{\scriptscriptstyle{\mathit{lw}}}
+											^{\scriptscriptstyle\,\,\uparrow\,'}}
+\newcommand{\Fluuo}{F_{\scriptscriptstyle{\mathit{lw}0}}
+											^{\scriptscriptstyle\,\,\uparrow\,'}}
+
+% sensible heat term (anomaly param. residuals)
+\newcommand{\Hso}{H_{\raisebox{3pt}{$\scriptstyle\hskip-1pt s \hskip0.5pt 0$}}'}
+\newcommand{\HsO}{H_{\raisebox{3pt}{$\scriptstyle\hskip-1pt s \hskip0.5pt 0$}}}
+\newcommand{\Hsoo}{H_{\raisebox{3pt}{$\scriptstyle\hskip-1pt s \hskip0.5pt 00$}}'}
+
+% skin temperature
+\newcommand{\Tsk}{T\subt{skin}}
+
+% budget residuals
+\newcommand{\xiU}{\xi_U}
+\newcommand{\xiUbar}{\barr{\xi_U}}
+\newcommand{\xim}{\xi_m}
+\newcommand{\ximbar}{\barr{\xi_m}}
+
+% toy model coefficients
+\newcommand{\nuE}{\nu_{\scalebox{0.7}{$\hskip-1pt E$}}}
+\newcommand{\nuHs}{\nu_{\scalebox{0.7}{$\hskip-1.5pt H\hskip-1pt s$}}}
+\newcommand{\nuI}{\nu_{\scalebox{0.7}{$\hskip-1pt I$}}}
+\newcommand{\nus}{\nu_{\hskip-1pt s}}
+\newcommand{\gammaHs}{\gamma_{\scalebox{0.7}{$\hskip-2.5pt H\hskip-1pt s$}}}
+\newcommand{\gammalw}{\gamma_{\scalebox{0.7}{$\hskip-2.5pt l\hskip-1pt w$}}}
+\newcommand{\gammaG}{\gamma_{\scalebox{0.7}{$\hskip-1.5pt G$}}}
+
+% alternative toy model coefficients and residuals 
+\newcommand{\nuHsalt}{\tilde{\nu_{\scalebox{0.7}{$\hskip-1.5pt H\hskip-1pt s$}}}}
+\newcommand{\gammaalt}{\tilde{\gamma}\;}
+\newcommand{\chialt}{\tilde{\chi}\;}
+% -----------------------------------------------------------------------------
+
+%% Units shortcuts
+
+% time
+\newcommandx*{\s}[1][1={}]{\,\ensuremath{\text{s}^{#1}}\xspace}
+\newcommandx*{\Day}[1][1={}]{\,\ensuremath{\text{day}^{#1}}\xspace}
+
+% length
+\newcommandx*{\m}[1][1={}]{\,\ensuremath{\text{m}^{#1}}\xspace}
+\newcommandx*{\mm}[1][1={}]{\,\ensuremath{\text{mm}^{#1}}\xspace}
+\newcommandx*{\cm}[1][1={}]{\,\ensuremath{\text{cm}^{#1}}\xspace}
+
+% mass
+\newcommandx*{\kg}[1][1={}]{\,\ensuremath{\text{kg}^{#1}}\xspace}
+
+% temperature
+\newcommandx*{\K}[1][1={}]{\,\ensuremath{\text{K}^{#1}}\xspace}
+\newcommand{\degC}{\,\ensuremath{^\circ\text{C}}\xspace}
+
+% Energy
+\newcommandx*{\J}[1][1={}]{\,\ensuremath{\text{J}^{#1}}\xspace}
+\newcommandx*{\W}[1][1={}]{\,\ensuremath{\text{W}^{#1}}\xspace}
+\newcommandx*{\Wm}[1][1={}]{\,\ensuremath{\text{Wm}^{#1}}\xspace}
+
+% Pressure
+\newcommandx*{\Pa}[1][1={}]{\,\ensuremath{\text{Pa}^{#1}}\xspace}
+% -----------------------------------------------------------------------------
+
+%% Environments
+
+% A nicer-looking cases environment (easier to code as a command ...)
+\newcommand{\nicecases}[5]{\begin{cases}
+		\;\;#1 \\ \;\;#4 \end{cases}
+		\text{#2}
+		\quad \vspace*{-1em}
+		\begin{array}{l}#3 \\ #5\;.\end{array}}  
+
+% A variant ... Using & to align #2
+\newcommand{\Nicecases}[5]{\begin{cases}
+		\;\;#1 \\ \;\;#4 \end{cases}
+		\mbump\mbump&\text{#2}
+		\quad \vspace*{-1em}
+		\begin{array}{l}#3 \\ #5\end{array}}  
+	
+% -----------------------------------------------------------------------------

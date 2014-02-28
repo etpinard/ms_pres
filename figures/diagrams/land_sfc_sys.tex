@@ -1,0 +1,154 @@
+\begin{tikzpicture}
+%
+% Add to main .tex file with (resized to fit line width)
+%
+% \resizebox{\linewidth}{!}
+%	 {\input{/path/to/this/file/evapofrac}}
+%
+% Please the following libraries in the preamble via \usetikzlibrary:
+% arrows, calc, decorations.pathmorphing, shapes
+% -----------------------------------------------------------------------------
+
+  % Color definition (requires \usepackage[svgnames]{xcolor})
+	\colorlet{sfc}{green!40!black}
+  \colorlet{landatm}{gray!20!white}
+  \colorlet{F}{Crimson}
+  \colorlet{resp}{MidnightBlue}
+
+  % Box and boundary styles
+	\tikzset{
+		sfc/.style={thick,
+                color=sfc},
+		sys/.style={fill=landatm,
+               rounded corners=2pt},
+  }
+
+  % Arrow styles
+	\tikzset{
+		axis/.style={thick,|<->|,font={\scriptsize \sf},left},
+		axis2/.style={thick,<->|,font={\scriptsize \sf},left},
+		forc/.style={very thick,->,},
+		flux/.style={very thick,->,
+                scale=1,midway,left,
+                decorate,decoration={coil,amplitude=4pt,segment length=7pt}},
+		rad/.style={very thick,->,
+                 decorate,decoration={snake,segment length=17pt}},
+		}
+
+  % Node styles
+	\tikzset{
+		  words/.style={font=\sf,scale=0.8},
+      symbol/.style={scale=1,midway,left,yshift=1ex,color=black},
+      param/.style={scale=1,above,right,color=black},
+  }
+
+% -------------------------------------------------------------------------------
+
+  % Origin and total width
+  \coordinate (O) at (0,0);
+  \pgfmathsetlengthmacro{\W}{10cm}
+
+  % Coordinates of sfc, box and axis
+  \pgfmathsetlengthmacro{\soilH}{0.3cm}
+  \pgfmathsetlengthmacro{\atmH}{0.7cm}
+	\coordinate (sfc) at (O);
+	\coordinate (sfc') at ($(O)+(\W,0)$);
+	\coordinate (box) at ($(O)-(0,\soilH)$);
+	\coordinate (box') at ($(O)+(\W,\atmH)$);
+  \coordinate (axis) at ($(-0.6,-\soilH)$);
+  \coordinate (axis') at ($(-0.6,0)$);
+  \coordinate (axis'') at ($(-0.6,\atmH)$);
+
+
+  % Forcing functions coordinates
+  \coordinate (P) at (2,2);
+  \coordinate (P') at ($(2,\atmH)+(0,0.05)$);
+  \coordinate (F0) at (3,2);
+  \coordinate (F0') at ($(3,\atmH)+(0,0.05)$);
+
+  % Fluxes coordinates
+  \coordinate (E) at ($(4,\atmH-0.65cm)$);
+  \coordinate (E') at (4.2,1.51);
+  \coordinate (Hs) at ($(6,\atmH-0.65cm)$);
+  \coordinate (Hs') at (6.2,1.51);
+
+  % Longwave up and heat diffusion
+  \coordinate (Flu) at ($(8,\atmH-0.65cm)$);
+  \coordinate (Flu') at (8,1.51);
+  \coordinate (G) at ($(5,\atmH-0.5cm)$);
+  \coordinate (G') at (5,-0.7);
+  
+  % Runoff and infiltration
+  \coordinate (I) at ($(7,\atmH-0.5cm)$);
+  \coordinate (I') at (7,-0.7);
+  \coordinate (R) at (9.5,0.1);
+  \coordinate (R') at (10.5,0.1);
+
+% -----------------------------------------------------------------------------
+	
+  % Drawing the axis
+  \draw[axis] (axis) -- (axis') node[xshift=-0.6ex,yshift=-7pt] {10 cm};
+  \draw[axis2] (axis') -- (axis'') node[xshift=-0.6ex] {2 m};
+
+  % Drawing the atmosphere box
+	\filldraw[sys] (box) rectangle (box');
+
+  % Drawing the surface axis and hashes
+	\draw[sfc] (sfc) -- (sfc');
+	\foreach \x in {1,...,10}
+        \draw[sfc] ($(\x,-5pt)-(0.3,0)$) -- ($(\x,0pt)-(0.6,0)$); 
+  \node at ($(O)+(0.07*\W,7pt)$) {$T\pt,\pt m$};
+
+  % Forcing functions
+	\draw[forc,color=F] (F0) -- (F0') node[symbol] {$P'$};
+	\draw[forc,color=F] (P) -- (P') node[symbol] {$F'$};
+
+  % Fluxes 
+	\draw[flux,color=resp] (E) -- (E') node[param] {$E'$};
+	\draw[flux,color=resp] (Hs) -- (Hs') node[param] {$H_s'$};
+
+  % Longwave up and heat diffusion
+	\draw[rad,color=resp] (Flu) -- (Flu') node[param] {$\Fluu$};
+	\draw[rad,color=resp] (G) -- (G') node[param] {$G'$};
+
+  % Runoff and infiltration
+	\draw[forc,color=resp] (I) -- (I') node[param] {$I'$};
+	\draw[forc,color=resp] (R) -- (R') node[param] {$R'$};
+
+
+
+  % Drawing the shortwave part of the spectrum
+%	\draw[flux] (sw1) -- (sw2) 
+%		node[L1,yshift=15pt,xshift=-20pt,scale=0.8] {$E_1$};
+%	\draw[A2] (sw3) -- (sw4)
+%		node[L1,above, left,xshift=-5pt,scale=0.8] {$E_2$};
+%	\draw[A2] (sw5) -- (sw6)
+%		node[L1,above, left,xshift=-2pt,yshift=5pt,scale=0.8] {$E_3$};
+%
+%		% Drawing the longwave arrows 
+%	\draw[A1] (lw1) -- (lw2)
+%		node[L1,below, left,yshift=-5pt,xshift=15pt,scale=0.8] {$E_4$};
+%	\draw[A2] (lw3) -- (lw4)
+%		node[L1,below, left,yshift=-5pt,xshift=15pt,scale=0.8] {$E_5$};
+%	\draw[A2] (lw5) -- (lw6)
+%		node[L1,below, left,yshift=-5pt,xshift=15pt,scale=0.8] {$E_6$};
+%	\draw[A1] (lw7) -- (lw8)
+%		node[L1,below, left,yshift=-5pt,xshift=15pt,scale=0.8] {$E_7$};
+%	\draw[A1] (lw9) -- (lw10)
+%		node[L1,below, left,yshift=5pt,xshift=15pt,scale=0.8] {$E_8$};
+%
+%		% Drawing the other fluxes
+%	\draw[A2,dashed] (h1) -- (h2)
+%		node[L1,below, left,yshift=-5pt,xshift=15pt,scale=0.8] {$E_9$};
+%
+%		% Drawing the latent heat flux arrow
+%	\draw[A2,color=blue!90] (e2) -- (e1)
+%		node[L1,above,left,scale=0.8] {$LE$}; 
+%
+%		% Drawing the damping arrows
+%	\draw[A1,color=orange!90] (lw4) -- (lw3)
+%		node[L1,above,left,xshift=-2pt,scale=0.6] {$E_4$};
+%	\draw[A2,color=orange!90] (h2) -- (h1)
+%		node[L1,above, right,scale=0.6] {$H_s$};
+
+\end{tikzpicture}

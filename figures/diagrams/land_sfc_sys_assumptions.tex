@@ -1,0 +1,121 @@
+\begin{tikzpicture}
+%
+% Land-surface system for the 'toy model assumption slide'
+%
+% requires the following tikz libraries:
+%   arrows, calc, decorations.pathmorphing, shapes
+%
+%  and package \usepackage[svgnames]{xcolor}
+% -----------------------------------------------------------------------------
+
+%% Color and style definitions
+
+% color definition 
+\colorlet{sfc}{green!40!black}
+\colorlet{landatm}{gray!20!white}
+\colorlet{F}{Crimson}
+\colorlet{resp}{MidnightBlue}
+
+% box and boundary styles
+\tikzset{
+  sfc/.style={thick,
+              color=sfc},
+  sys/.style={fill=landatm,
+             rounded corners=2pt},
+}
+
+% arrow styles
+\tikzset{
+  axis/.style={thick,|<->|,font={\sf},left},
+  axis2/.style={thick,<->|,font={\sf},left},
+  forc/.style={very thick,->,},
+  flux/.style={very thick,->,
+              scale=1,midway,left,
+              decorate,decoration={coil,amplitude=4pt,segment length=7pt}},
+  rad/.style={very thick,->,
+               decorate,decoration={snake,segment length=17pt}},
+  }
+
+% node styles
+\tikzset{
+    words/.style={font=\sf,scale=0.8},
+    symbol/.style={scale=1.1,midway,left,yshift=2ex,color=black},
+    param/.style={scale=1.1,above,right,color=black},
+}
+
+% -------------------------------------------------------------------------------
+
+%% Coordinates 
+
+% Origin and total width
+\coordinate (O) at (0,0);
+\pgfmathsetlengthmacro{\W}{10cm}
+
+% Coordinates of sfc, box and axis
+\pgfmathsetlengthmacro{\soilH}{0.3cm}
+\pgfmathsetlengthmacro{\atmH}{0.7cm}
+\coordinate (sfc) at (O);
+\coordinate (sfc') at ($(O)+(\W,0)$);
+\coordinate (box) at ($(O)-(0,\soilH)$);
+\coordinate (box') at ($(O)+(\W,\atmH)$);
+\coordinate (axis) at ($(-0.6,-\soilH)$);
+\coordinate (axis') at ($(-0.6,0)$);
+\coordinate (axis'') at ($(-0.6,\atmH)$);
+
+
+% Forcing functions coordinates
+\coordinate (P) at (2,2);
+\coordinate (P') at ($(2,\atmH)+(0,0.05)$);
+\coordinate (F0) at (3,2);
+\coordinate (F0') at ($(3,\atmH)+(0,0.05)$);
+
+% Fluxes coordinates
+\coordinate (E) at ($(4,\atmH-0.65cm)$);
+\coordinate (E') at (4.2,1.51);
+\coordinate (Hs) at ($(6,\atmH-0.65cm)$);
+\coordinate (Hs') at (6.2,1.51);
+
+% Longwave up and heat diffusion
+\coordinate (Flu) at ($(8,\atmH-0.65cm)$);
+\coordinate (Flu') at (8,1.51);
+\coordinate (G) at ($(5,\atmH-0.5cm)$);
+\coordinate (G') at (5,-0.7);
+
+% Runoff and infiltration
+\coordinate (I) at ($(7,\atmH-0.5cm)$);
+\coordinate (I') at (7,-0.7);
+\coordinate (R) at (9.5,0.1);
+\coordinate (R') at (10.5,0.1);
+
+% -----------------------------------------------------------------------------
+	
+% -) Drawing the axis
+\draw[axis] (axis) -- (axis') node[xshift=-0.6ex,yshift=-7pt] {10 cm};
+\draw[axis2] (axis') -- (axis'') node[xshift=-0.6ex] {2 m};
+
+% -) Drawing the atmosphere box
+\filldraw[sys] (box) rectangle (box');
+
+% -) Drawing the surface axis and hashes
+\draw[sfc] (sfc) -- (sfc');
+\foreach \x in {1,...,10}
+      \draw[sfc] ($(\x,-5pt)-(0.3,0)$) -- ($(\x,0pt)-(0.6,0)$); 
+\node[scale=1.1] at ($(O)+(0.07*\W,7pt)$) {$T'\pt,\pt m'$};
+
+% -) Forcing functions
+\draw[forc,color=F] (F0) -- (F0') node[symbol] {$P'$};
+\draw[forc,color=F] (P) -- (P') node[symbol] {$F'$};
+
+% -) Fluxes 
+\draw[flux,color=resp] (E) -- (E') node[param] {$E'$};
+\draw[flux,color=resp] (Hs) -- (Hs') node[param] {$H_s'$};
+
+% -) Longwave up and heat diffusion
+\draw[rad,color=resp] (Flu) -- (Flu') node[param] {$\Fluu$};
+\draw[rad,color=resp] (G) -- (G') node[param] {$G'$};
+
+% -) Runoff and infiltration
+\draw[forc,color=resp] (I) -- (I') node[param] {$I'$};
+\draw[forc,color=resp] (R) -- (R') node[param] {$R'$};
+
+\end{tikzpicture}

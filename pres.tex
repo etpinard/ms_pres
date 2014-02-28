@@ -1,0 +1,144 @@
+% -------------------------------------------------------------------------------
+% 
+\documentclass[10pt,xcolor=svgnames]{beamer}
+%\documentclass[10pt,draft,xcolor=svgnames]{beamer}
+
+% -------------------------------------------------------------------------------
+
+%% Include only:
+
+%\includeonly{content/01_intro}
+%\includeonly{content/02_data}
+%\includeonly{content/03_toy_model}
+%\includeonly{content/04_interpret}
+%\includeonly{content/05_apps,content/06_conclu}
+%\includeonly{content/0A_bonus}
+
+% Title page and bibliography are in this file. 
+% Sections and bonus material are in ./content/ .
+% Macros are in ./pres_macros.tex and font options in pres_font.sty
+% -------------------------------------------------------------------------------
+
+%% Packages, beamer style and macros files
+
+% To refer to section name
+\usepackage{nameref}
+
+% Bibliography style, add title on bibliography page
+\usepackage[round]{natbib}
+
+% ** if draft
+\usepackage{ifdraft}
+
+% Import graphical package (add path to figures and diagrams)
+\usepackage{graphicx}
+\graphicspath{{figures/eps/}{figures/diagrams/}{figures/crop/}}
+
+% Tikz for diagrams and annotation
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,decorations.pathmorphing,shapes,trees}
+\tikzstyle{every picture}+=[remember picture]
+\usetikzlibrary{positioning}
+\usepackage{wasysym}          % additional characters
+
+% Import mathematical packages (equation numbering by section)
+\usepackage{amsmath,amsfonts,amssymb}  
+%\numberwithin{equation}{section}
+
+%	Import beamer style in ./beamerthemeepres.sty 
+% (includes the \mytitlepage and \tikzfig commands}
+\usetheme{pres}
+
+% Import macros in ./pres_macro.tex
+\input{pres_macros}    
+
+% Font choices and adjustments in ./pres_font.sty
+\usepackage{pres_font}          
+\DeclareMathSizes{10}{11.5}{8}{7}
+
+% Math environment formating
+\AtBeginDocument{\setlength{\abovedisplayskip}{1em}}
+%\AtBeginDocument{\setlength{\abovedisplayshortskip}{0em}}
+%\AtBeginDocument{\setlength{\belowdisplayskip}{0.75em}}	
+%\AtBeginDocument{\setlength{\belowdisplayshortskip}{1em}}	
+%\AtBeginDocument{\setlength{\jot}{0.5em}}		% in-between rows in align
+
+% -------------------------------------------------------------------------------
+
+%% Definitions 
+
+% Title
+\title[]%
+{Linking Soil Moisture \\ {\Large and} \\ 
+ Summertime \\ Surface Temperature Variability}
+
+% Authors
+\author[]%
+{\'Etienne T\'etreault-Pinard 
+ \\[1em] {\small David Battisti}   
+ \\ {\small Abby Swann, Dargan Frierson, Marcia Baker}   
+}
+% \\[0.7em] {\small Committee members: A} 
+
+% Date 
+\date[]%
+{October 24, 2013}
+
+% ------------------------------------------------------------------------------- 
+
+\begin{document}
+ 
+%% Title page
+\mytitlepage
+
+% -------------------------------------------------------------------------------
+
+%% Content
+
+\include{content/01_intro}
+\include{content/02_data}
+\include{content/03_toy_model}
+\include{content/04_interpret}
+\include{content/05_apps}
+\include{content/06_conclu}
+
+% -------------------------------------------------------------------------------
+
+%% Bibliography / final page
+
+\section*{References}
+
+\begin{frame}
+\frametitle{Thank you.}
+
+\vspace*{1cm}
+\begin{minipage}{0.8\textwidth}
+
+\nocite{fig2003}
+\nocite{fig2010}
+\nocite{fig2012}
+
+{\tiny
+\def\newblock{}
+\bibliographystyle{plainnat}
+\bibliography{pres_references}
+}
+
+\vspace*{1cm}
+
+\textbf{\large Questions\,?}
+
+\end{minipage}
+
+\end{frame}
+
+% -------------------------------------------------------------------------------
+
+%% Bonus material (make a different file)
+
+%\include{content/0A_bonus}
+
+% -------------------------------------------------------------------------------
+
+\end{document}
+% -------------------------------------------------------------------------------

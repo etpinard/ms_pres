@@ -1,0 +1,516 @@
+%
+% Section 1: Introduction
+%
+%   # of slides: 10
+%
+% -------------------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+\begin{frame}
+\frametitle{Why Study Temperature Variability?}
+
+\begin{itemize}
+
+\item {Recent summertime heat waves / droughts:}
+
+\end{itemize}
+
+\begin{center}
+
+\tikzfig{intro_fig}{width=0.75\linewidth}
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\coordinate (p2003) at ($(intro_fig.west)+(1.75,0.5)$);
+\coordinate (p2010) at ($(intro_fig.west)+(-0.5,-2)$);
+\coordinate (p2012) at ($(intro_fig.east)+(0.5,-2)$);
+
+\node[color=colone,font=\bf] at (p2003) {2003};
+\node[color=colone,font=\bf] at (p2010) {2010};
+\node[color=colone,font=\bf] at (p2012) {2012};
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Temperature variability projections}
+
+\begin{columns}
+
+  \begin{column}{0.35\linewidth}
+
+  \vspace*{-2em}
+  \begin{itemize}
+
+  \item \citet{schar04}: \textcolorbf{coltwo}{increasing \COtwo} could lead to
+  \textcolorbf{coltwo}{increasing summertime $T$ variability} in some locations.
+
+  \item \textcolorbf{colone}{Left panel:} \newline \vspace*{-1em}
+  $\barr{T}_{2071-2100}-\barr{T}_{1961-1990}$ \\[1.5em]
+
+  \textcolorbf{colone}{Right panel:} \newline \vspace*{-0.5em}
+  $\dfrac{\sigma_{\!T,2071-2100}-\sigma_{\!T,1961-1990}}{\sigma_{\!T,1961-1990}}$ 
+
+  \end{itemize}
+
+  \end{column}
+  
+  \begin{column}{0.6\linewidth}
+
+  \vspace*{-0.6em}
+  \hspace*{0.7em}
+  \tikzfig{schar04_map}{trim=0cm 2.4cm 0.1cm 0cm,clip,width=0.98\linewidth}
+
+%  \vspace*{-1.8em}
+%  \tikzfig{schar04_pdf}{trim=0cm 0cm 0.1cm 0cm,clip,width=\linewidth}
+
+  \end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Role of soil moisture / {\normalsize land-atmosphere interactions}}
+
+\vspace*{-2.5cm}
+\begin{itemize}
+
+\item \citet{sene06_coupling}: 4 GCM simulations:
+
+\end{itemize}
+
+\begin{center}
+
+\tikzfig{sene06_sig_T}{trim=0cm 0.4cm 7.5cm 0cm,clip,width=0.68\linewidth}
+
+\vspace*{-4cm} 
+\tikzitemMark
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\coordinate (title) at ($(sene06_sig_T.north)+(0,-0.1)$);
+\coordinate (units) at ($(sene06_sig_T.east)+(0.3,-1.7)$);
+\coordinate (label1) at ($(sene06_sig_T.west)+(-0.5,2)$);
+\coordinate (label2) at ($(sene06_sig_T.west)+(-0.5,-1)$);
+\coordinate (label3) at ($(sene06_sig_T.south)+(-1.8,-0.1)$);
+\coordinate (label4) at ($(sene06_sig_T.south)+(1.8,-0.1)$);
+
+\node[color=colone,font=\bf] at (title) {Standard deviation of $T$ (JJA)};
+\node at (units) {[$\degC$]};
+\node[color=colone,align=left,font={\small \bf}] at (label1) 
+  {evolving \\ soil moisture};
+\node[color=colone,align=left,font={\small \bf}] at (label2) 
+  {constant \\ soil moisture};
+\node[font={\small \bf}] at (label3) {1960-1989};
+\node[font={\small \bf}] at (label4) {2070-2099};
+
+\uncover<2->{%
+%
+\node[inner sep=10pt,fill=colbg,xshift=-1em] at (item)
+{\textcolor{coltwo}{\scalebox{1.3}{$\Longrightarrow$}}\quad 
+ \textcolorbf{coltwo}{Soil moisture is related to the $\Var(T)$ trends}} ;}
+
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Hold on! Are GCMs reliable?}
+
+\begin{itemize}
+
+\item CMIP5 ensemble mean of summer (JJA in NH, DJF in SH) \newline 
+surface temperature variance [1969-1999].
+
+\end{itemize}
+
+\begin{center}
+
+\tikzfig{cmip5_Var_T_bias_Eq}{width=0.9\textwidth}
+
+\vspace*{1em}
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\tikzitem[<1>]{%
+%
+Plotted as \enskip $\dfrac{\Var(T)\subt{CMIP5}}{\Var(T\subt{observations})}$
+\enskip,\quad \parbox{0.42\textwidth}{\small %
+%
+$T\equiv$ 2-meter temp.\\ 
+$T\subt{observations}$ : U. of Delaware data.
+%
+}}
+%(65 runs, 25 models, 12 institutes).
+
+\tikzitemImply[<2->]{%
+%
+\textcolorbf{coltwo}{Wide-spread overestimation of $\Var(T)$: 25\% to 100\%.} }
+
+\uncover<2->{%
+%
+\node[draw,highlight,circle,minimum size=1.3cm] 
+  at ($(cmip5_Var_T_bias_Eq.east)+(-0.7,1)$) {}; }
+%
+%\node[draw,highlight,circle,minimum size=1.3cm] 
+%  at ($(cmip5_Var_T_bias.center)+(-0.5,1)$) {}; 
+%%  
+%\node[draw,highlight,circle,minimum size=1.3cm] 
+%  at ($(cmip5_Var_T_bias.center)+(1,1)$) {}; }
+
+%% also in other studies such as \citet{vidale07}
+
+\end{tikzpicture}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions:}
+
+\vspace*{-1em}
+
+\begin{itemize}
+
+\boxitem{\centering%
+%
+Could the \textcolorbf{colone}{same mechanisms} that produce the \\[0.5em] 
+\textcolorbf{colone}{\twentyfirst century} summertime $\Var(T)$
+\textcolorbf{colone}{trends} in the GCMs \\[0.5em]
+be \textcolorbf{colone}{responsible for} the \\[0.5em] 
+\textcolorbf{colone}{\twentyth century} summertime $\Var(T)$ 
+\textcolorbf{colone}{biases} in the GCMs ? }
+
+\end{itemize}
+
+\vspace*{1em}
+
+\uncover<2->{
+%
+But first:
+
+\begin{columns}
+\begin{column}{0.3\linewidth}
+
+\hspace*{1cm} \textcolorbf{colone}{How are}
+
+\end{column}
+\begin{column}{0.4\linewidth}
+\begin{itemize}
+
+\itemDiamond soil moisture,
+\itemDiamond land-atmosphere \\ \quad interactions, 
+\itemDiamond surface temperature \\ \quad variability
+
+\end{itemize}
+\end{column}
+\begin{column}{0.3\linewidth}
+
+\quad \textcolorbf{colone}{related ?}
+
+\end{column}
+\end{columns}
+%
+}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Mechanisms: Surface Energy Budget}
+
+% define colors, style for equation 
+\colorlet{sfc}{black}
+\colorlet{F}{Crimson}
+\colorlet{E}{MidnightBlue}
+\colorlet{Hs}{Magenta}
+\colorlet{Flu}{DarkOrange}
+\colorlet{G}{Green}
+\tikzset{eq/.style={rounded corners=2pt, minimum height=5ex, minimum width=5ex}}
+
+\begin{equation}
+%
+  \derv{}{t}\,\big(\pt C\subt{eff} \pt T \pt\big) \;\;=\;\;
+%     
+  \tikzeqMark[fill=F!40,eq]{F}{\Fsw\down - \Fsw\up + \Flw\down} \; - \;  
+%
+	\tikzeqMark[fill=E!40,eq]{E}{L\,E} \; - \;  
+%
+	\tikzeqMark[fill=Hs!40,eq]{Hs}{H_s} \; - \;  
+%
+	\tikzeqMark[fill=Flu!40,eq]{Flu}{\Flu} \; - \;
+%
+	\tikzeqMark[fill=G!40,eq]{G}{G} 
+%
+\end{equation}
+
+\vspace*{1em}
+\begin{itemize}
+
+\item[]<2->
+%
+\textcolor{F}{Radiation Forcing} \tikzmark{item-F} \\
+\quad $\equiv\, F$
+
+\item[]<3->
+%
+\textcolor{E}{Evapotranspiration} \tikzmark{item-E}
+
+\item[]<3->
+%
+\textcolor{Hs}{Sensible Heat Flux} \tikzmark{item-Hs}
+
+\item[]<4->
+%
+\textcolor{Flu}{Upwelling Longwave Radiation} \tikzmark{item-Flu}
+
+\item[]<4->
+%
+\textcolor{G}{Ground Heat Flux} \tikzmark{item-G}
+
+\end{itemize}
+
+\vspace*{1em}
+%
+{\small%
+%
+$C\subt{eff}$ : specific heat capacity of land surface, \newline
+%
+$L$ : specific latent heat of vaporization.}
+
+\begin{tikzpicture}[overlay]
+
+	\path[->]<2-> (item-F) edge [bend right] (F);
+	\path[->]<3-> (item-E) edge [bend right] (E);
+	\path[->]<3-> (item-Hs) edge [out=0, in=-45] (Hs);
+	\path[->]<4-> (item-Flu) edge [out=0, in=-45] (Flu);
+	\path[->]<4-> (item-G) edge [out=0, in=-45] (G);
+
+\end{tikzpicture}
+
+%% input from figures/diagrams
+\tikz{\coordinate (O) at ($(item-G)+(4.5,-0.8)$);}
+\ifdraft{}{\input{figures/diagrams/sfc_engy_bud}}
+%\input{figures/diagrams/sfc_engy_bud}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Mechanisms: Koster Diagram}
+
+\vspace*{-1em}
+\begin{center}
+
+\tikzfig{koster}{width=0.9\linewidth}
+
+\vspace*{2.5em}
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\tikzitem[<1>]{\parbox{0.7\textwidth}{\centering%
+%
+Simplified framework for understanding $E$ \\ 
+on seasonal time scales as a function of: \\[0.5em]
+soil moisture ($m$\,)\, and\, $F\subt{net}\equiv F{-}\Flu$ \\[0.5em]
+\hfill \citep{koster09_droughts}.} }
+
+\tikzitem[<2>]{%
+%
+\textcolorbf{coltwo}{Problem:} \enskip
+no explicit link to surface temperature. }
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Mechanisms: Feedback Loops}
+
+\vspace*{-2em}
+\begin{columns}
+
+\begin{column}{0.5\linewidth}
+
+\hspace*{-1em}
+\tikzfig{sene10_loops1}{trim=0cm 3.1cm 0cm 0cm,clip,width=1.2\textwidth}
+
+\end{column}
+
+\begin{column}{0.5\linewidth}
+
+\hspace*{-4.5em}
+\tikzfig{sene10_loops2}{trim=0cm 2.8cm 0cm 0cm,clip,width=1.4\textwidth}
+
+\end{column}
+
+\end{columns}
+
+\centering
+\vspace*{4em}
+\tikzitemMark
+
+\begin{tikzpicture}[overlay]
+
+% define for cross out
+\tikzset{crossout/.style={% 
+  draw,line width=1em,cross out,
+  minimum width=12em,minimum height=12em,color=coltwo}}
+
+% define coordinate
+\coordinate (sene10-middle) at ($(sene10_loops1) !0.5! (sene10_loops2)$);
+
+\tikzitem[<1>]{\parbox{0.7\textwidth}{%
+%
+\centering
+Land-atmosphere interactions are thought \\ to spawn feedbacks loops \\[1ex]
+\citep{sene10}.} }
+
+\tikzitem[<2>]{%
+%
+\textcolorbf{coltwo}{Problem:} \quad \parbox{0.7\textwidth}{%
+too complicated, \\[1ex] must run GCM which have large $\Var(T)$ errors.} }
+
+\uncover<2>{%
+%
+\node[crossout] at (sene10-middle) {}; }
+
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Mechanisms: Something better?}
+
+\vspace*{-1em}
+
+% top item
+\begin{itemize}
+
+%\boxitem{% Does not work: leading item is misplaced
+\item
+%
+\textcolorbf{colone}{Make link between} \quad
+%
+\parbox{0.48\linewidth}{
+%
+\begin{itemize}
+\itemDiamond soil moisture,
+\itemDiamond land-atmosphere interactions, 
+\itemDiamond surface temperature variability
+\end{itemize} }
+%
+\quad \textcolorbf{colone}{explicit}
+
+\end{itemize}
+
+%\vspace*{1em}
+
+% two figures (koster and sene10_loops1)
+\begin{columns}
+\begin{column}{0.4\linewidth}
+
+\uncover<1->{%
+%
+\hspace*{-2em}
+\tikzfig{koster}{width=1.2\linewidth} }
+
+\end{column}
+\hfill
+\begin{column}{0.4\linewidth}
+
+\uncover<1->{%
+%
+\tikzfig{sene10_loops1}{trim=0cm 3.05cm 0cm 0cm,clip,width=0.9\textwidth} }
+
+\end{column}
+\end{columns}
+
+\vspace*{2em}
+
+% box item (at bottom)
+\begin{itemize}
+
+\boxitem[0.88][<2->]{\centering\textcolorbf{colone}{%
+%
+A \emph{toy model}\, for surface temperature variability.}}
+% 'summertime does not fit'
+
+\end{itemize}
+
+% overlay
+\begin{tikzpicture}[overlay]
+
+\coordinate (left) at ($(koster.south west)+(0.4,-0.4)$);
+\coordinate (right) at ($(sene10_loops1.south east)+(0,-0.1)$);
+\coordinate (toy-model) at ($(koster.east) !0.5! (sene10_loops1.west)$);
+
+\uncover<1->{%
+%
+\draw[->,very thick] (left) -- (right);
+\node[xshift=7.8em,yshift=-2ex] at (left) {conceptual}; 
+\node[xshift=-5.8em,yshift=-2ex] at (right) {complex}; 
+\draw[very thick] ($(left)+(2.7,-0.1)$) -- ($(left)+(2.7,0.1)$); 
+\draw[very thick] ($(right)+(-2,-0.1)$) -- ($(right)+(-2,0.1)$); }
+
+\uncover<2->{%
+%
+\draw[very thick] ($(toy-model)+(0,-1.78)$) -- ($(toy-model)+(0,-1.58)$); 
+\node[circle,draw=black,thick,text=colone,font={\bf \Large}] at (toy-model)
+  {us!}; }
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+
+\begin{itemize}
+
+\boxitem{\textcolorbf{colone}{\centering%
+%
+Let's investigate how soil moisture and $\Var(T)$ are related.}}
+
+\end{itemize}
+
+\vspace*{1em}
+
+\hfill\parbox{0.8\textwidth}{%
+%
+\begin{itemize}
+
+\item \ref{sec:intro}.\; \nameref{sec:intro} 
+  \qquad \scalebox{1.5}{\textcolor{coltwo}{$\checkmark$}}
+
+\item \ref{sec:data}.\; \nameref{sec:data} 
+
+\item \ref{sec:toy_model}.\; \nameref{sec:toy_model} 
+
+\item \ref{sec:interpret}.\; \nameref{sec:interpret} 
+
+\item \ref{sec:apps}.\; \nameref{sec:apps} 
+
+\item \ref{sec:conclu}.\; \nameref{sec:conclu}  \\[1.5em]
+
+\end{itemize}
+%
+}
+
+
+
+\end{frame}
+
+% -------------------------------------------------------------------------------

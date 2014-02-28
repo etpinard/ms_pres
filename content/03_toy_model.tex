@@ -1,0 +1,535 @@
+%
+% Section 3: Toy model
+%
+%   # of slides: 7 (new 10-15!)
+%
+% -------------------------------------------------------------------------------
+\section{Developing the Toy Model}
+\label{sec:toy_model}
+
+\begin{frame}
+\frametitle{Toy model preliminaries}
+
+\begin{itemize}
+
+\boxitem{%
+%
+\textcolorbf{colone}{Goal:} 
+%
+\parbox{0.8\linewidth}{\centering\textcolorbf{colone}{%
+Form an expression for $\Var(T)$.} } }
+
+%\boxitem{% Does not work: leading item is misplaced
+\item
+%
+\quad\textcolorbf{colone}{Tools:} \quad
+%
+\parbox{0.8\linewidth}{
+%
+\begin{itemize}
+\itemDiamond Surface energy budget,
+\itemDiamond Soil moisture budget,  
+\itemDiamond Parameterization of land surface fluxes.
+\end{itemize}
+%
+}
+
+\boxitem{%
+%
+Focus on inter-annual variability: \\[1ex]
+--- Use monthly-averaged variables, \\
+--- Decompose each variable around monthly climatology:
+\begin{equation}
+%
+  X_{i,j}' \;\equiv\; X_{i,j} \;-\; \Xbar_j
+%
+\end{equation}
+%
+\quad where $i\,$: year index, $j\,$: month index.
+}
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Toy model preliminary results}
+
+% define style for equation 
+\tikzset{crossout/.style={% 
+  draw,ultra thick,cross out,minimum width=4ex,minimum height=4ex,color=coltwo}}
+
+\vspace*{-2em}
+Surface energy and soil moisture anomaly budgets:
+\vspace*{1.5em}
+
+\setlength{\fboxsep}{6pt}
+\Ovalbox{\parbox{0.94\linewidth}{%
+%
+\begin{subequations}
+\vspace*{-1em}
+\begin{align}
+%
+%
+  \tikzeqMark{dUdt}{\displaystyle \derv{}{t}\,\big(\pt C\subt{eff}\pt T' \pt\big)} 
+  \;\;&=\;\;
+%  
+  F' \;-\; L\pt E' \;-\; H_s' \;-\; \Fluu \;-\; G' \\
+%
+  \tikzeqMark{dmdt}{\displaystyle \derv{m'}{t}} \;\;&=\;\;
+% 
+  P' \;-\; E' \;-\; R' \;-\; I' 
+\end{align}
+\vspace*{-1em}
+\end{subequations} }}
+
+\begin{center}
+\vspace*{4em} 
+\tikzitemMark
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+% 1) define P, R and I
+\tikzitem[<1>]{\parbox{0.8\textwidth}{\centering%
+%
+$T\;$: 2-meter temperature \enskip, \\[1em]
+$C\subt{eff}\;$: effective heat capacity of land surface \enskip, \\[1.5em]
+$P\;$: Precipitation \enskip,\enskip 
+$R\;$: Surface Runoff \enskip,\enskip
+$I\;$: Infiltration \enskip. }}
+
+% 2) choose the surface layer 10\cm moisture content: 
+% best correlated, similar autocorrelation properties.
+\tikzitem[<2>]{\parbox[t]{0.8\textwidth}{\centering
+%
+\textcolorbf{colone}{Assume that} $m\,$ is the moisture content \\[0.5em]
+in the \textcolorbf{colone}{top 10\cm of soil} }}
+%
+%\quad\parbox{0.5\textwidth}{
+%\begin{itemize}
+%\itemDiamond best correlated with $E$, 
+%\itemDiamond GCM output.
+%%\itemDiamond similar autocorrelation than $T'$.
+%\end{itemize} } } }
+
+% 3) One can show that storage terms are small 
+\tikzitem[<3>]{%
+%
+Scale analysis reveals that both
+\textcolorbf{colone}{storage terms are negligible}.}
+
+\uncover<3->{%
+%
+\node[crossout] at (dUdt) {};
+\node[crossout] at (dmdt) {}; }
+
+% 4) Define non-GCM outputs G' and I' !
+\tikzitem[<4>]{%
+%
+\textcolorbf{colone}{Define} \enskip $G'\equiv F' - LE' - H_s' - \Fluu$ %
+%
+\enskip and \enskip % 
+%
+$I' \equiv P' - E' - R'$ }
+
+% (maybe) inconsistency of E' and top layer
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Toy model assumptions}
+
+\vspace*{-3em}
+\begin{center}
+
+% input from figures/diagrams
+\ifdraft{}{%
+%
+\resizebox{\linewidth}{!}{\input{figures/diagrams/land_sfc_sys_assumptions}} }
+
+%\vspace*{1em}
+
+\end{center}
+
+\hfill\parbox{0.9\textwidth}{%
+%
+\begin{itemize}
+%
+\item \textcolorbf{colone}{1.\;}\qquad\parbox{0.75\textwidth}{%
+%
+$F'$ and $P'$ are \textcolorbf{colone}{external forcings}, \\[0.5em] 
+independent of $\,E',H_s',\Fluu,G',I',R'\,$. } \\[1.5em]
+%
+\item \textcolorbf{colone}{2.\:}\qquad\parbox{0.75\textwidth}{%
+%
+Parameterize $\,E',H_s',\Fluu,G',I',R'\,$ as \\[0.5em]
+%\emph{instantaneous} (on monthly time scales) \\[0.5em]
+functions of $\,T',m',F',P'\,$ \textcolorbf{colone}{only}.  }
+%
+\end{itemize} }
+
+
+%\begin{tikzpicture}[overlay]
+%
+%\tikzitem[<2>]{\textcolorbf{colone}{1.\:}\qquad\parbox{0.65\textwidth}{%
+%%
+%Parameterize $\,E',H_s',\Fluu,G',I',R'\,$ as \\[0.5em]
+%%\emph{instantaneous} (on monthly time scales) \\[0.5em]
+%functions of $\,T',m',F',P'\,$ only. } }
+%
+%\tikzitem[<3>]{\textcolorbf{colone}{2.\;}\qquad\parbox{0.65\textwidth}{%
+%%
+%$F'$ and $P'$ are \emph{external forcings}, \\[0.5em] 
+%independent of $\,E',H_s',\Fluu,G',I',R'\,$. } }
+%
+%%% - assumption slide (list 4 assumptions as in thesis section 3.3)
+%%% 1 'imply'  item ? T' m' = ....
+%
+%%% maybe ...
+%%Land-surface processes' anomalies are independent of soil moisture content
+%%below the surface soil layer (top 10\cm from land surface).
+%
+%\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Toy model method}
+
+\textcolorbf{colone}{Ex:\enskip} Consider $G'$ (ground heat flux):
+\vspace*{0.5em}
+
+\begin{itemize}
+
+\boxitem[0.933][<2->]{%
+%
+\textcolorbf{colone}{Step 1:} \enskip
+%
+Regress $G'$ onto 4 possible predictors:
+%
+\begin{equation}
+%
+G' = G_0' + a Y'
+\quad \text{where} \quad Y'= \big\{ \pt T',\,m',\,F'\,,P' \pt \big\}
+%
+\end{equation}
+%
+\hspace*{1em} \textcolorbf{colone}{Best predictor} has 
+$\min \big[\pt \innerp{G_0'}{G_0'} \pt\big]$ \\[0.7em]
+%
+\uncover<3->{%
+\hspace*{2em} \textcolorbf{coltwo}{\raisebox{0.3ex}{\danger}}\enskip
+If \emph{necessary} repeat \textcolorbf{colone}{step 1.} with $G_0'$ }
+} 
+
+\vspace*{-0.7em}
+
+\boxitem[0.933][<4->]{%
+%
+\textcolorbf{colone}{Step 2:} 
+\enskip \textcolorbf{coltwo}{\raisebox{0.3ex}{\danger}}\enskip 
+If $T'$ is a \emph{candidate} \\[0.5em]
+%
+\hspace*{0.5em} Substitute $G' = a T'$ into surface energy anomaly budget:
+%
+\begin{equation}
+%
+\hat{\!T\,}' = a\inv\, \big[ F' - LE' - H_s' - \Fluu \big]
+%
+\end{equation}
+%
+\hspace*{1em} \textcolorbf{colone}{Evaluate performance} with 
+$\rms\big[\pt \hat{\!T\,}' - T'\subt{dataset} \pt\big]$ }
+
+%\item<5-> 1 physically consistent algorithm for all datasets
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Toy model parameterizations}
+
+\vspace*{-2cm}
+\begin{center}
+
+% input from figures/diagrams
+\ifdraft{}{%
+%
+\resizebox{\linewidth}{!}{\input{figures/diagrams/land_sfc_sys_param}} }
+
+\vspace*{3em}
+\tikzitemMark
+
+%\vfill\hfill\parbox{0.8\textwidth}{%
+%%
+%$\gamma$, $\lambda$, all $\nu$'s and $\beta$ 
+%\textcolorbf{colone}{are positive definite} }
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+% for the Flu', G', I'
+\tikzitem[<2>]{%
+%
+3 out of 6 processes were \emph{easy} to parameterize}
+
+% for the I' item
+\tikzitem[<3>]{\parbox{0.6\textwidth}{\centering%
+%
+2 predictors for inflitration $m'$ and $P'$ }}
+
+% for the E' item
+\tikzitem[<4>]{\parbox{0.87\textwidth}{\centering%
+%
+Special algorithm for $E'$ to model both $E$ regimes: \\[1.5em]%
+\textcolorbf{colone}{If} $\innerp{E'}{m'}>0$\,:\enskip 
+2 predictors $m'\,$ and $F'\,$ (moisture-limited) \\[1em] 
+\hspace*{-2.5em} \textcolorbf{colone}{Otherwise:} 
+\hspace*{0.8em} 1 predictor $F'$ only (energy-limited)} }
+
+% for the H_s' term
+\tikzitem[<5>]{\parbox{0.8\textwidth}{\centering%
+%
+\textcolorbf{coltwo}{Surprising result:} 
+$H_s'$ is best predicted by $m'\,$!\\[1.5em]
+Use 2 predictors $T'$ and $m'$ }}
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Toy model {\large expressions / coefficients}}
+
+% define style for equation 
+\tikzset{term/.style={%
+  rounded corners=2pt, minimum height=4ex, minimum width=4ex, 
+  fill=MidnightBlue!40}}
+
+\vspace*{-2em}
+After some algebra:
+\vspace*{1em}
+
+\setlength{\fboxsep}{10pt}
+\Ovalbox{\parbox{0.94\linewidth}{%
+%
+\begin{subequations}
+\begin{align}
+%
+ \Ttm \;&=\; 
+%
+\tikzeqMark{gamma}{\displaystyle \frac{1}{\;\gamma\;} }
+%
+ \, \Big[ \,\big( \pt 1
+%
+\tikzeqMark{lambda-1}{\displaystyle -\,\lambda} 
+%  
+ \pt \big)\, F_0'
+%
+ \;-\; L\alpha \big( \pt 1
+%
+\tikzeqMark{lambda-2}{\displaystyle -\,\lambda}
+% 
+ \pt \big)\, P' \;-\; L\, 
+% 
+\tikzeqMark{effects-m}{\displaystyle \big( \pt \nuE - \nuHs \pt \big)\, m'}
+%
+ \, \Big] \\
+%
+ \tikzeqMark{mtm}{\displaystyle \mtm}  \;&=\; 
+%
+ \tikzeqMark{nus}{\displaystyle \frac{1}{\;\nuI+\nuE\;}} 
+% 
+ \, \Big[ \, \big( \pt 1 
+%
+\tikzeqMark{lambda-3}{\displaystyle +\,\alpha \lambda} 
+%
+\tikzeqMark{beta}{\displaystyle -\,\beta}
+% 
+ \pt \big)\, P' \;-\; 
+%
+ \tikzeqMark{lambda-4}{\displaystyle \big( \pt \tfrac{\lambda}{L} \pt \big)}  
+%
+ \, F_0' \, \Big] 
+%
+\end{align}
+\end{subequations} } }
+
+\begin{center}
+
+\vspace*{3em}
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\tikzitem[<1>]{\textcolorbf{colone}{Recall} \quad \parbox{0.55\textwidth}{%
+%
+$F'=F_0' - L\alpha P'$ \\[1ex]
+$L$ : specific latent heat of vaporization} }
+
+% gamma
+\tikzitem[<2>]{\textcolorbf{colone}{Surface temperature resistance}
+\enskip ($\Wm[-2]\K[-1]$)}
+%
+\uncover<2>{%
+%
+\node[term] at (gamma) {$\displaystyle \frac{1}{\;\gamma\;}$}; }
+
+% lambda
+\tikzitem[<3>]{\textcolorbf{colone}{Evapotranspiration efficiency} 
+\enskip (unitless)}
+%
+\uncover<3>{%
+%
+\node[term] at (lambda-1) {$\displaystyle -\,\lambda$}; 
+\node[term] at (lambda-2) {$\displaystyle -\,\lambda$}; 
+\node[term] at (lambda-3) {$\displaystyle +\,\alpha\lambda$}; 
+\node[term] at (lambda-4) 
+  {$\displaystyle \big(\pt \tfrac{\lambda}{L} \pt\big)$}; }
+
+% beta 
+\tikzitem[<4>]{\textcolorbf{colone}{Fraction of $P'$ loss to $I'$ and $R'$} 
+\enskip (unitless)}
+%
+\uncover<4>{%
+%
+\node[term] at (beta) {$\displaystyle -\,\beta$}; }
+
+% nu E - nu H_s
+\tikzitem[<5>]{\parbox{0.7\textwidth}{\centering
+\textcolorbf{colone}{Net effect of soil moisture anomalies on $T'$} \\[1em]
+All $\nu$'s have units of $\s[-1]$} }
+%
+\uncover<5>{%
+%
+\node[term] at (effects-m) 
+  {$\displaystyle \big( \pt \nuE - \nuHs \pt \big)\, m'$}; }
+
+% define chi
+\tikzitem[<6>]{\parbox{0.82\textwidth}{\centering%
+\textcolorbf{colone}{Define}\quad
+$\displaystyle \chi \equiv \frac{\nuE-\nuHs}{\nuI+\nuE}$ 
+\enskip (unitless) \enskip
+\textcolorbf{colone}{the coupling coefficient} \\[1em]
+Modulates net effect of $m'$ on $T'$ } }
+%
+\uncover<6>{%
+%
+\node[term] at (effects-m) 
+  {$\displaystyle \big( \pt \nuE - \nuHs \pt \big)\, m'$};
+\node[term] at (mtm) {$\displaystyle \mtm$};
+\node[term] at (nus) {$\displaystyle \frac{1}{\;\nuI+\nuE\;}$}; }
+
+%% Combine gamma and beta
+%\tikzitem[<6>]{\quad\parbox{0.85\textwidth}{%
+%%
+%$\gamma\;$: [$\Wm[-2]\K[-1]$] \hspace*{2em}
+%%
+%\parbox{0.65\textwidth}{%
+%%
+%from param. $\Fluu \,,\, H_s' \,,\, G'$  onto $T'$ \\[1ex]
+%%
+%\hspace*{1em} } \\[1.5em]
+%%
+%$\beta\;$: [unitless] \hspace*{3em}
+%%
+%\parbox{0.65\textwidth}{%
+%%
+%from param. $I' \,,\, R'$ onto $P'$ \\[1ex]
+%%
+%\hspace*{1em} 
+%%
+%} }
+%
+%%% Lambda and nu's
+%\tikzitem[<7>]{\quad\parbox{0.85\textwidth}{%
+%%
+%$\lambda\;$: [unitless] \hspace*{3em}
+%%
+%\parbox{0.65\textwidth}{%
+%%
+%from param. $E'$ onto $F'$ \\[1ex]
+%%
+%\hspace*{1em} 
+%%
+%$\nuE \,,\, \nuHs \,,\, \nuI\;$: [\s[-1]] \hspace*{1em}
+%%
+%\parbox{0.65\textwidth}{%
+%%
+%from param. $E' \,,\, (-H_s') \,,\, I'$ onto $m'$ \\[1em]
+%%
+%\hspace*{1em} 
+%\textcolorbf{colone}{rate at which $m'$ induces $E' \,,\, (-H_s') \,,\, I'$} }
+%%
+%} }
+
+
+\end{tikzpicture}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Toy model performance}
+
+\begin{center}
+
+% 1) world map
+\uncover<1>{%
+%
+\tikzfig{comp_tm_Var_T_bias}{width=\textwidth} }
+
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\coordinate (title) at ($(comp_tm_Var_T_bias.north)+(-0.4,0.4)$);
+\coordinate (label1) at ($(comp_tm_Var_T_bias.west)+(2,1)$);
+\coordinate (label2) at ($(comp_tm_Var_T_bias.south east)+(-1.5,0.5)$);
+
+% write Var(T) expression over figure
+\node[color=colone,font=\bf] at (title) 
+  {\small $\displaystyle \VarTtm = 
+    \frac{1}{\gamma^2}\, \Big[ 
+      \big( 1-\lambda(1-\chi) \big)^2 \Var(F_0) + 
+      L^2 \big( \alpha(1-\lambda)+\chi(1+\alpha\lambda-\beta) \big)^2 \Var(P)
+     \Big]$ };
+
+\tikzitem[<1>]{%
+Plotted as \enskip $\dfrac{\VarTtm}{\Var(T\subt{dataset})}$ }
+
+% 2) histogram of all land points
+\uncover<2->{%
+%
+\node at (comp_tm_Var_T_bias) {%
+  \includegraphics[trim=0cm 0.5cm 0cm 0.72cm,clip,width=0.55\textwidth]%
+  {hist_comp_tm_Var_T_bias}}; 
+\node[font=\bf] at (label1) {Probability};
+\node[font=\bf] at (label2) 
+  {$\dfrac{\VarTtm}{\Var(T\subt{dataset})}$};
+%
+}
+
+\tikzitemImply[<2>]{\textcolorbf{coltwo}{%
+%
+Toy model underestimates dataset outputs by $\sim$ 20\% to 40\%. } }
+
+%% Why underestimation ? 
+% - soil moisture, H_s parameterization, neglected processes (memory, feedbacks)
+
+%% bin size ? 0.025.
+
+\end{tikzpicture}
+
+\end{frame}
+
+% -------------------------------------------------------------------------------

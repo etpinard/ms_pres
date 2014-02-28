@@ -1,0 +1,161 @@
+\begin{tikzpicture}
+%
+% Land-surface damped summary diagram. 
+%
+% ** include 'uncover' tikz commands **
+%
+% requires the following tikz libraries:
+%   arrows, calc, decorations.pathmorphing, shapes
+% 
+%   and the 'wasysym' package
+% -----------------------------------------------------------------------------
+
+%% Styles and colors
+
+% Color definition (requires \usepackage[svgnames]{xcolor})
+\colorlet{sfc}{green!40!black}
+\colorlet{landatm}{gray!20!white}
+\colorlet{F}{black}
+\colorlet{proc}{black}
+\colorlet{warm}{Crimson}
+\colorlet{cold}{MidnightBlue}
+
+% Box and boundary styles
+\tikzset{
+  sfc/.style={thick,
+              color=sfc},
+  sys/.style={fill=landatm,
+             rounded corners=2pt},
+}
+
+% Arrow styles
+\tikzset{
+  axis/.style={thick,|<->|,font={\scriptsize \sf},left},
+  axis2/.style={thick,<->|,font={\scriptsize \sf},left},
+  forc/.style={very thick,->,},
+  flux/.style={very thick,->,
+              scale=0.8,midway,left,
+              decorate,decoration={coil,amplitude=4pt,segment length=7pt}},
+  rad/.style={very thick,->,
+               decorate,decoration={snake,segment length=17pt}},
+}
+
+% Node styles
+\tikzset{
+    symbol/.style={scale=0.8,midway,left,yshift=1ex,color=black},
+    param/.style={scale=0.7,color=black},
+    coef/.style={scale=0.8,color=black},
+    resp/.style={scale=0.8,draw,very thick,ellipse,fill=landatm},
+}
+
+% -------------------------------------------------------------------------------
+
+%% Coordinates, lengths
+
+% Origin, box width, gap in-between box
+\coordinate (O) at (0,0);
+\pgfmathsetlengthmacro{\W}{5cm}
+\pgfmathsetlengthmacro{\gap}{0.5cm}
+
+% Length for soil height, atm height, above sfc text
+\pgfmathsetlengthmacro{\soilH}{0.3cm}
+\pgfmathsetlengthmacro{\atmH}{0.7cm}
+\pgfmathsetlengthmacro{\Asfc}{0.3cm}
+
+% left-hand land-atm box
+\coordinate (sfc1) at (O);
+\coordinate (sfc1') at ($(sfc1)+(\W,0)$);
+\coordinate (box1) at ($(sfc1)-(0,\soilH)$);
+\coordinate (box1') at ($(sfc1)+(\W,\atmH)$);
+
+% right-hand land-atm box
+\coordinate (sfc2) at ($(sfc1')+(\gap,0)$);
+\coordinate (sfc2') at ($(sfc2)+(\W,0)$);
+\coordinate (box2) at ($(sfc2)-(0,\soilH)$);
+\coordinate (box2') at ($(sfc2)+(\W,\atmH)$);
+
+% 'F0' box coordinates
+\coordinate (F0) at (1.5,2);
+\coordinate (F0') at ($(1.5,\atmH)+(0,0.05)$);
+\coordinate (E) at ($(2,\atmH)+(0,-0.15)$);
+\coordinate (E') at ($(2.2,1.51)$);
+\coordinate (lambda) at ($(1.5,\Asfc)$);
+\coordinate (T1) at ($(3.5,\Asfc)$);
+
+% 'P' box coordinate
+\coordinate (P) at ($(1.5,2)+(\W,0)+(\gap,0)$);
+\coordinate (P') at ($(1.5,\atmH)+(0,0.05)+(\W,0)+(\gap,0)$);
+\coordinate (I) at ($(1.5,0)+(\W,0)+(\gap,\atmH-0.5cm)$);
+\coordinate (I') at ($(1.5,0)+(\W,0)+(\gap,-0.7)$);
+\coordinate (R) at ($(1,0)+(\W,0)+(\gap,0.25)$);
+\coordinate (R') at ($(-0.2,0)+(\W,0)+(\gap,0.25)$);
+\coordinate (Hs) at ($(2.1,0)+(\W+\gap,0.35)+(0,\atmH-0.5cm)$);
+\coordinate (Hs') at ($(2.3,0)+(\W+\gap,0)+(0,1.51)$);
+\coordinate (m2) at ($(1.5,0)+(\W,0)+(\gap,\Asfc)$);
+\coordinate (T2) at  ($(3.5,0)+(\W,0)+(\gap,\Asfc)$);
+\coordinate (chi) at  ($(2.8,0)+(\W,0.7)+(\gap,\Asfc)$);
+%\coordinate (Hs) at ($(2.4,0)+(\W+\gap,0)+(0,\atmH-0.65cm)$);
+%\coordinate (Hs') at ($(2.6,0)+(\W+\gap,0)+(0,1.51)$);
+%\coordinate (dT1) at ($(3.2,0)+(\W,0.1)+(\gap,\Asfc)$);
+
+% -----------------------------------------------------------------------------
+
+% 1a) drawing the 'F0' box , F0 positive 
+\uncover<1->{%
+%
+\filldraw[sys] (box1) rectangle (box1');
+\draw[sfc] (sfc1) -- (sfc1');
+\foreach \x in {1,...,5}
+  \draw[sfc] ($(\x,-5pt)-(0.3,0)$) -- ($(\x,0pt)-(0.6,0)$); 
+% 
+\draw[forc,color=warm] (F0) -- (F0') node[symbol] {$F_0'>0$};
+%
+}
+
+% 1b) evaporation response , lambda small, T response 
+\uncover<1->{%
+%
+\draw[flux,color=cold] (E) -- (E') 
+  node[param,above,xshift=1em] {$E'>0$};
+% 
+\node[color=cold,coef,font=\sf] at (lambda) {$\lambda{=}\text{large}$};
+% 
+\node[color=warm,resp,dashed] at (T1) {$T'\apprge0$};
+%
+}
+
+% -------------------------------------------------------------------------------
+
+% 1c) drawing the 'P' box , P positive , lambda=large , evaporation 
+\uncover<1->{%
+%
+\filldraw[sys] (box2) rectangle (box2');
+\draw[sfc] (sfc2) -- (sfc2');
+\foreach \x in {1,...,5}
+  \draw[sfc] ($(\x,-5pt)+(0.1,0)+(\W,0)$) -- ($(\x,0pt)-(0.2,0)+(\W,0)$); 
+%
+\node[scale=0.7,xshift=2em,font=\sf] at (chi) {$\lambda{=}\text{large}$};
+%
+\draw[flux,color=warm] (Hs) -- (Hs') node[param,above,xshift=1em] {$E'<0$};
+%
+\draw[forc,color=cold] (P) -- (P') node[symbol] {$\alpha P'>0$};
+%
+\node[color=cold,resp,dashed] at (T2) {$T'\apprle0$}; % must overlay others paths/nodes
+}
+
+% 2) infiltration , runoff ,  chi positive , sensible heat , m & T response
+\uncover<2->{%
+%
+%\draw[forc,color=proc] (I) -- (I') node[param,below] {$I'>0$};
+% 
+%\draw[forc,color=proc] (R) -- (R') node[param,above,xshift=2.5em] {$R'>0$};
+%
+\node[scale=0.7,xshift=5.7em,font=\sf] at (chi) {$,\;\chi<0$};
+%
+\node[param,above,xshift=4.5em,yshift=-0.3em] at (Hs')  {$,\;H_s'<0$};
+%
+\node[resp] at (m2) {$m'>0$}; % must overlay others paths/nodes
+%
+}
+
+\end{tikzpicture}

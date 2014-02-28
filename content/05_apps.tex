@@ -1,0 +1,142 @@
+%
+% Section 5: Applications
+%
+%   # of slides: 3 
+%
+% -------------------------------------------------------------------------------
+\section{Toy Model Applications}
+\label{sec:apps}
+
+\begin{frame}
+\frametitle{Toy Model Applications}
+
+\begin{itemize}
+
+\boxitem[0.88][<1->]{%
+%
+\textcolorbf{colone}{\large 1.} \quad
+%
+\parbox{0.68\linewidth}{\centering
+Attributing GCM $\Var(T)$ errors to forcings \\[0.5em]
+and/or land-atmosphere interactions. } 
+%
+\quad \textcolorbf{colone}{Not today!} } 
+
+\boxitem[0.88][<1->]{%
+%
+\textcolorbf{colone}{\large 2.} \quad
+%
+\parbox{0.8\linewidth}{\centering
+\textcolorbf{colone}{Insight on late \twentyfirst century $\Var(T)$
+projections.} }}
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{SRES A1b\; {\large Summer soil moisture / temp. variance}}
+
+\vspace*{1.5em}
+\begin{columns}
+
+\begin{column}{0.5\linewidth}
+
+\hspace*{-1ex}
+\tikzfig{scenario_rel_diff_mbar_Ov20}{width=\textwidth}
+
+\end{column}
+
+\begin{column}{0.5\linewidth}
+
+\hspace*{-1ex}
+\uncover<3->{%
+\tikzfig{scenario_ratio_Var_T_Ov20}{width=1.01\textwidth} }
+
+\end{column}
+
+\end{columns}
+
+\vspace*{-0.5em}
+\begin{itemize}
+
+\item<4->{
+%
+\textcolorbf{coltwo}{Where:} \enskip
+$\mbar_{1969-1999} > m\subt{crit}$ (yellow line) and
+$\,\mbar_{2069-2099} < m\subt{crit}$ \\[1ex] 
+%
+\hspace*{2em} 
+\textcolorbf{coltwo}{$\Longrightarrow$ \enskip
+large temperature variance increase!} }
+
+\end{itemize}
+
+\begin{tikzpicture}[overlay]
+
+\coordinate (title-1) at 
+  ($(scenario_rel_diff_mbar_Ov20.north)+(-0.3,0.45)$);
+\coordinate (title-2) at 
+  ($(scenario_ratio_Var_T_Ov20.north)+(-0.3,0.45)$);
+
+% put moisture title
+\node[] at (title-1) 
+  {$\dfrac{\mbar_{2069-2099}-\mbar_{1969-1999}}{\mbar_{1969-1999}}\times100$};
+
+% shade moisture
+\tikzShadeFig[<2->]{scenario_rel_diff_mbar_Ov20}{%
+  (0.82,0) rectangle (1,1) 
+  (0.23, 0.31) circle [radius=0.04]
+  (0.45, 0.37) circle [radius=0.06]
+}
+
+% uncover Var(T)
+\uncover<3->{%
+%
+\node[] at (title-2) {$\dfrac{\Var(T_{2069-2099})}{\Var(T_{1969-1999})}$}; }
+
+% shade Var(T)
+\tikzShadeFig[<4->]{scenario_ratio_Var_T_Ov20}{%
+  (0.82,0) rectangle (1,1) 
+  (0.23, 0.31) circle [radius=0.04]
+  (0.45, 0.37) circle [radius=0.06]
+}
+
+\end{tikzpicture}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{AR4 soil moisture in late \twentyfirst century}
+
+\begin{center}
+
+\vspace*{-1cm}
+\tikzfig{ipcc_soil_mois}{trim=0cm 2cm 0cm 0cm,clip,width=\textwidth}
+
+\end{center}
+
+\vspace*{-1em}
+\begin{itemize}
+
+\item \parbox{0.9\textwidth}{\centering%
+%
+\hadgem soil moisture projections in W. Europe, Central US \\ 
+are consistent with AR4 ensemble average. }
+
+\end{itemize}
+
+%\begin{tikzpicture}[overlay]
+%
+%\uncover<2->{%
+%%
+%\node[inner sep=10pt,fill=colbg,xshift=-1em] at (item)
+%{\textcolor{coltwo}{\scalebox{1.3}{$\Longrightarrow$}}\quad 
+% \textcolorbf{coltwo}{South central US and Western Europe are } ;}
+%
+%\end{tikzpicture}
+
+\end{frame}
+
+% -------------------------------------------------------------------------------

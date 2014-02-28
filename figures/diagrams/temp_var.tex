@@ -1,0 +1,124 @@
+\begin{tikzpicture}
+%
+% Tree diagram summarizing the 'recipe' for surface temperature variability
+%
+% requires the following tikz libraries:
+%   arrows, calc, decorations.pathmorphing, shapes
+%
+% -----------------------------------------------------------------------------
+
+%% style definitions
+
+\tikzset{%
+%
+  root/.style={rectangle,draw=black,very thick,rounded corners=2pt,
+               align=center,font={\bf \large},fill=colone!60},
+  level 1/.style={sibling distance=45mm},
+  edge from parent/.style={->,draw,very thick,shorten >=2pt},
+  level 2/.style={rounded corners=6pt,align=center,fill=colone!40,
+                   text width=12em,font=\bf},
+  level 3/.style={align=center,fill=colfl!50,inner sep=2pt,
+                  text width=10em,text height=1em},
+  level 3m/.style={align=center,fill=colfl!50,inner sep=2pt,
+                   text width=6em,text height=0.8em,font={\small}},
+  level 4/.style={rectangle,draw=black,very thick,rounded corners=2pt,
+                  inner sep=4pt,text height=0.6em,
+                  align=center,fill=colone!60,text width=4em,font={\bf}},
+  subarrow/.style={thick,arrows=-square,shorten >=3pt},
+  mag-arrow/.style={->,very thick,shorten >=2pt},
+%
+}
+
+% -------------------------------------------------------------------------------
+
+%% 1. Regimes 
+
+\node[root] {2 regimes:}
+  child {node[level 2] (c1) 
+    {Land-surface amplified \\[0.5ex]
+    $\frac{\gamma^2\Var(T)}{\Var(F)}>1$} }
+  child {node[level 2] (c2) 
+    {Land-surface damped \\[0.5ex]
+    $\frac{\gamma^2\Var(T)}{\Var(F)}<1$} };
+
+% -------------------------------------------------------------------------------
+
+%% is associated with
+
+\begin{scope}[every node/.style={level 3}]
+
+  \coordinate (m0) at ($(c1.west) + (-1.2,0)$);
+  \coordinate (m1) at ($(c1.south west) + (-1.2,-0.32)$);
+
+  \uncover<2->{%
+  %
+  \node[level 4] at (m0) {Metrics:}; 
+  %
+  \node[level 3m,yshift=-10pt] at (m1) {$\sgn(\mbar-m\subt{crit})$};
+  \node[level 3m,below of=m1,yshift=-15pt] (m2) {$\sgn(\corr(E,m))$};
+  \node[level 3m,below of=m2,yshift=-5pt] (m3) {$\sgn(\corr(E,F))$};
+  \node[level 3m,below of=m3,yshift=-5pt] (m4) {$\sgn(\chi)$};
+  %
+  \node[below of=c1,xshift=5pt,yshift=-10pt] (c11) 
+    { {\bf Dry soils} \\ ($<0$) };
+  \node[below of=c11,yshift=-5pt] (c12)
+    { {\bf Moisture-limited} \\ ($>0$) };
+  \node[below of=c12,yshift=-5pt,fill=colbg] (c13) 
+    { {\bf \phantom{dsadsa}} \\ \phantom{($<0$)} };
+  \node[below of=c13,yshift=-5pt] (c14) 
+    { $m'{>}0$ {\bf \small assoc.} $T'{>}0$ \\ ($>0$) };
+  %
+  \node[below of=c2,xshift=5pt,yshift=-10pt] (c21) 
+    { {\bf Wet soils} \\ ($>0$)};
+  \node[below of=c21,yshift=-5pt,fill=colbg] (c22) 
+    { {\bf \phantom{dsadsa}} \\ \phantom{($>0$)} };
+  \node[below of=c22,yshift=-5pt] (c23)
+    { {\bf Energy-limited} \\ ($>0$) };
+  \node[below of=c23,yshift=-5pt] (c24) 
+    { $m'{>}0$ {\bf \small assoc.} $T'{<}0$ \\ ($<0$) };
+  %
+  }
+
+\end{scope}
+
+% -------------------------------------------------------------------------------
+
+%%% 2. Magnitudes governed by
+%
+%\begin{scope}[every node/.style={level 4}]
+%
+%\uncover<2->{%
+%%
+%  \node[below of=c14,xshift=5pt] (c111) 
+%    {2. $\left|\frac{\gamma^2\Var(T)}{\Var(F)}\right|\propto\chi\Var(P)^\half$};
+%  \node[below of=c24,xshift=-10pt] (c222) 
+%    {2. $\left|\frac{\gamma^2\Var(T)}{\Var(F)}\right|\propto\lambda$ or $\,\mbar$};
+%%
+%}
+%
+%\end{scope}
+%
+%% -------------------------------------------------------------------------------
+
+%% draw lines 
+
+\uncover<2->{%
+%
+\foreach \value in {1,2,4}
+  \draw[subarrow] (c1.200) |- ($(c1\value.west) + (0.4,0)$);
+%
+\foreach \value in {1,3,4}
+  \draw[subarrow] (c2.200) |- ($ (c2\value.west) + (0.4,0)$);
+%
+}
+
+%\uncover<2->{%
+%%
+%\path[mag-arrow] (c1.198) edge [bend right] (c111.168);
+%\path[mag-arrow] (c2.342) edge [bend left] (c222.12);
+%%
+%}
+
+% -------------------------------------------------------------------------------
+
+\end{tikzpicture}

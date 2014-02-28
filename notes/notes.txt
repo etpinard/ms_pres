@@ -1,0 +1,106 @@
+
+  Some notes ... about the MS presentation
+
+===============================================================================
+
+# slide count:
+
+- (10/20): 10+5+7+6+3+3 = 34  (+1 title page , +1 references page)
+
+-------------------------------------------------------------------------------
+
+# thing to wonder about
+
+- put the global warming cartoon ?
+
+- show map of soil moisture network form (sene10) 
+  -- in the toy model slide in 01_intro ???
+
+- is the font size too big ?
+
+- Put (modified) sfc_engy cartoon in 03 slide 2 ? [land_sfc_sys does the trick]
+- talk about seasonal cycle errors in section 2 ? [a detail ... nop!]
+
+-------------------------------------------------------------------------------
+
+# content stuff
+
+- General:  
+  - How to call gamma? 'surface temperature resistance' , 'rate of damping of T'
+
+- Dropped slides/figures from (10/15) version:
+  - schar 04 T distributions.
+  - 'Bowen ratio' , 
+  - merge 'toy model parameterization' and 'toy model coefficients'
+  - Bottom panel of relative contributions
+  - 'toy model coeffiecients and mean-state'
+  - 'relative contributions'
+  - (change 'slide interpreting the toy model' ... 
+      first 2 items --> 'we can do this thorougly ... )
+  - slide 'correlations errors in GCMs'
+  - slide 'term-by-term' : show only chi and highlight lambda, gamma.
+  - slide 'temperature variability within each regime'
+     
+      mention that 'chi' has both signs in slide 'term-by-term'
+      highlight that 'chi'>0 is amplified slide (similarly for 'chi'<0)
+       ... say something like 'toy model' can show this explicitly
+
+  - slide 'expression/coefficients': skip over beta??
+
+- 05_ era moisture !! nah (just say it)
+
+- To do !!! : - 0A_
+
+
+-------------------------------------------------------------------------------
+
+# beamer stuff
+
+- define a better 'coltwo' ( a little bit flashier )
+
+- centered itemize ? Does not work as of (09/16)
+  * use \hfill and \parbox. (maybe something better?, make command?)
+
+- improve \tikzShadeFig , reduce margins , inner / outer frame color
+
+- make boxed items. (09/17) not bad
+- improve 'section' in footline. (09/17) not bad
+  tall letters are a little bit cropped at bottom
+  individual rectangles do not fill the \pagewidth 
+
+-------------------------------------------------------------------------------
+
+# figure left to plot 
+
+- section 1 and 2: done!
+
+- section 3:
+  hist_comp_tm_Var_T_bias, with bigger tick labels (done, good as 10/09)
+
+  Section 3 bonus:
+  comp_tm_T_rms (done)
+  comp_Res_Hs_m , comp_gain_Hs_Tm_mF (done)
+  hadgem1_Res_E_m_F (done)
+
+- section 4:
+  hadgem1_sc_{lambda,chi}  (done)
+  hadgem1_fact_F0_P_OvGM (done, 2 panels)
+  hadgem1_scale_FO_P_{T,m}    (done, 1 + 1 bonus)
+  comp_scale_gammaT{,_OvGM}   (done, maybe improve overlay color?)
+
+- section 5:
+  scenario plots are in folder.
+  make 1-box versions of the line_forc_coeffs plot
+  with transparent '.eps' background  , (done, without legend)
+
+- other bonus:
+  comp_scale_ddt_xiU , comp_scale_ddt_xim (done)
+
+
+-------------------------------------------------------------------------------
+
+# misc stuff
+
+
+-------------------------------------------------------------------------------
+

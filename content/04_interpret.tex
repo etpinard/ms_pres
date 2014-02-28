@@ -1,0 +1,261 @@
+%
+% Section 4: Interpretation
+%
+%   # of slides: 6 (new 10-20!) 
+%
+% -------------------------------------------------------------------------------
+\section{Toy Model Interpretation}
+\label{sec:interpret}
+
+\begin{frame}
+\frametitle{Interpreting the Toy Model}
+
+Toy model expresses \enskip 
+$\Var(T) = \mcal{F}\big(\Var(F_0),\Var(P),\,\text{\tmcoeffs}\big)$
+
+\vspace*{1em}
+
+\begin{itemize}
+
+% Q for coefficients -- mean state
+\boxitem[0.88][<1->]{%
+%
+\textcolorbf{colone}{Q:} \quad
+%
+\parbox{0.68\linewidth}{\centering
+Do the \tmcoeffs \\ show dependence \\ on mean-state variables ? }
+%
+\uncover<2->{\quad \textcolorbf{colone}{Not today!} } }
+
+% Q for relative contribution of forcing to variance
+\boxitem[0.88][<1->]{%
+%
+\textcolorbf{colone}{Q:} \quad
+%
+\parbox{0.68\linewidth}{\centering
+What are the relative contributions \\ 
+of $\Var(F_0)$ and $\Var(P)$ to $\Var(T)$ ?}
+%
+\uncover<2->{\quad \textcolorbf{colone}{Not today!} } }
+
+% Q for role of land-surface on Var(T)
+\boxitem[0.88][<2->]{%
+%
+\textcolorbf{colone}{Q:} \quad
+%
+\parbox{0.8\linewidth}{\centering\textcolorbf{colone}{%
+What is the role of soil moisture \\ 
+(mean-state and anomalies) on $\Var(T)$ ?} } }
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame} 
+\frametitle{{\large Role of the land surface on surface temperature variability}}
+
+\vspace*{-1.5em}
+
+\begin{itemize}
+
+\item<1-> Start from the toy model expression for $\Var(T)$: 
+%
+\begin{equation*}
+%
+\hspace*{-1em}
+%
+  \VarTtm = \frac{1}{\gamma^2}\, \Big[ 
+  \big( 1-\textcolor{colone}{\lambda}(1-\textcolor{colone}{\chi}) \big)^2 \Var(F_0) + 
+  L^2 \big( \alpha(1-\textcolor{colone}{\lambda})+
+   \textcolor{colone}{\chi}(1+\alpha\lambda-\beta) \big)^2 \Var(P)
+  \Big] 
+%
+\end{equation*}
+
+\boxitem[0.88][<2->]{%
+%
+\textcolorbf{colone}{Set} \qquad
+%
+\parbox{0.75\linewidth}{
+\textcolor{colone}{$\chi$} 
+  {\small (effects of soil moisture anomalies on $\Var(T)$)} \\
+\textcolor{colone}{$\lambda$} 
+  {\small (evapotranspiration efficiency)} }
+%
+\textcolor{colone}{$\displaystyle = 0$} \\[1.5em]
+%
+\textcolorbf{colone}{To get:} \qquad
+$\displaystyle \VarTtm = \gamma\invv \big[ \Var(F_0) + L^2\alpha^2\Var(P) \big]$
+}
+
+\boxitem[0.88][<3->]{\textcolorbf{colone}{Define} \enskip 
+%
+$\dfrac{\gamma^2\Var(T)}{\Var(F)}$ \enskip 
+\textcolorbf{colone}{the surface temperature response} }
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Two regimes {\large of surface temperature variability}}
+
+\begin{center}
+
+\uncover<1>{%
+%
+\tikzfig{comp_scale_gammaT}{width=\textwidth} }
+
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\coordinate (title) at ($(comp_scale_gammaT.north)+(-0.4,0.4)$);
+\node[color=colone,font=\bf] at (title) 
+  {Surface temperature response $\gamma^2\Var(T)/\Var(F)$};
+
+% - Surface temperature variability
+%   land-surface amplified / damped regimes !!!
+\tikzitem[<1>]{\parbox{0.8\linewidth}{\centering%
+%
+The land surface is able to \\
+\textcolorbf{colone}{amplify} and \textcolorbf{colone}{damp} \\
+surface temperature variability} }
+
+% show comp_scale_gammaT (with and without global mean soil moisture)
+\uncover<2->{%
+%
+\node at (comp_scale_gammaT) 
+  {\includegraphics[width=\textwidth]{comp_scale_gammaT_OvGM}} ; }
+
+\tikzitem[<2>]{\parbox{0.8\linewidth}{\centering%
+%
+Superpose with global mean soil moisture contour: \\[1ex]
+\textcolorbf{coltwo}{Dry soils}
+(moisture-limited $E$) 
+\textcolorbf{coltwo}{amplify $\Var(T)$}, \\
+\textcolorbf{coltwo}{Wet soils} 
+(energy-limited $E$)
+\textcolorbf{coltwo}{damp $\Var(T)$ } } }
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Interpret: {\large Land-surface amplified / Moisture-limited}}
+
+\vspace*{-1.5em}
+
+\begin{itemize}
+
+\itemDiamond $\lambda\;$: evapotranspiration efficiency 
+
+\itemDiamond $\chi\;$: coupling coefficient (modulates net effect of $m'$ on $T'$)
+
+\end{itemize}
+
+\begin{center}
+
+% input from figures/diagrams
+\ifdraft{}{%
+%
+\resizebox{\linewidth}{!}{\input{figures/diagrams/tm_interp_dry}} }
+
+\vspace*{1.5em}
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\tikzitem[<1>]{%
+%
+Non-precipitating $F'$ are unattenuated by land surface}
+
+\tikzitem[<2>]{%
+%
+Radiative effects of $P'$ on $E'$ are negligible}
+
+\tikzitem[<3>]{\hfill\parbox{0.9\linewidth}{\centering%
+%
+Soil moisture input generates latent cooling (via $E$\,) \\[1em]
+%
+\textcolorbf{coltwo}{%
+Radiative effects of $P'$ on $T'$ are amplified by land surface} \\[1em]
+%
+\textcolorbf{coltwo}{%
+Soil moisture anom. amplify $T'$} 
+} }
+
+% more ...
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Interpret: {\large Land-surface damped / Energy-limited}}
+
+\vspace*{-1.5em}
+
+\begin{itemize}
+
+\itemDiamond $\lambda\;$: evapotranspiration efficiency 
+
+\itemDiamond $\chi\;$: coupling coefficient (modulates net effect of $m'$ on $T'$)
+
+\end{itemize}
+
+\begin{center}
+
+%% input from figures/diagrams
+\ifdraft{}{%
+%
+\resizebox{\linewidth}{!}{\input{figures/diagrams/tm_interp_wet}} }
+
+\vspace*{1.5em}
+\tikzitemMark
+
+\end{center}
+
+\begin{tikzpicture}[overlay]
+
+\tikzitem[<1>]{\hfill\parbox{0.9\linewidth}{\centering%%
+%
+$E$\, responds to radiation, 
+opposing $F_0'$ and $\alpha P'$ \\[1em]
+%
+\textcolorbf{coltwo}{%
+Radiative effects of $P'$ on $T'$ are damped by land surface} } }
+
+\tikzitem[<2>]{\hfill\parbox{0.9\linewidth}{\centering%
+%
+Soil moisture anomaly modifies sensible heat flux \\[1em]
+%
+Further damping $\alpha P'$ } }
+
+% more ...
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{\large Surface temperature variability is regime dependent}
+
+%\vspace*{-2em}
+
+%% input from figures/diagrams
+\ifdraft{}{%
+%
+\resizebox{\linewidth}{!}{\input{figures/diagrams/temp_var}} }
+%\resizebox{\linewidth}{!}{\input{figures/diagrams/temp_var}}
+
+%% within each regimes ...
+
+\end{frame}
+
+% -------------------------------------------------------------------------------

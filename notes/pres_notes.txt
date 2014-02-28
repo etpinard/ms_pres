@@ -1,0 +1,1056 @@
+
+MS presentation --- things to say
+
+%% : means an in slide flip
+
+Rework : 
+- Intro
+- Koster slide
+- correlations with E 1 & 2
+- segue way into section 3 'toy model prelims'
+- role of land surface
+- lead into interpret slides ...
+
+
+===============================================================================
+
+
+- Title slide:
+
+First of all, thanks for being here.
+
+And thank you especially considering my talk is not
+on the typical Thursday afternoon Dynamics seminar topic.
+
+If I've just read the title thinking ... What is this?
+Don't panic ... I have several introduction slides.
+
+Hopefully I will convince you that is non-only it is an interesting topic 
+but also an important one in climate science.
+
+So, I am going to start by reading the title:
+Linking "soil moisture" and "summertime surface temperature variability"
+
+For us today the variability of interest will be of the inter-annual 
+(year-to-year) type. 
+
+Just as an example, heat waves are extreme inter-annual temperature events
+
+I am going to use these the introduction the subject:
+
+
+# Section 01
+
+- slide 'why study temperature variability':
+
+Heat waves have been in the news lately.
+
+Last summer in central US. A pretty severe drought.
+
+In 2010, Russia was hit hard. They had wild fires reaching Moscow!
+
+And in 2003 over most of Europe. 
+
+Non-only this particular event was very dramatic, 
+but it also 
+led to a lot of research on some of the concepts that I will talk about today.
+
+And, first of all, people asked themselves 
+ Is this a sign of things to come?
+(as is often the case in climate science) ...
+quite
+
+- slide 'temperature variability projections':
+
+This study here made use a two climate model simulations.
+(1 historical and 1 climate change scenario)
+
+The left panel is the mean surface temperature change, 
+late 21st minus late 20th century.
+
+And the right panel is relative change in the standard deviation of 
+surface temperature. 
+
+Contours in red are 100% change relative to the late 20th century climate.
+
+A pretty significant signal. (Worth publishing a least ...)
+(they did not detrend!)
+
+Also \ notice that the patterns in mean and variability are not the same,
+perhaps telling us that different mechanisms are at play.
+
+
+- slide 'role of soil moisture':
+
+And this is where soil moisture comes in.
+
+This study here is pretty clean.
+We've got 4 GCM runs.
+
+2 20th century and scenario runs 
+2 with evolving soil moisture and 2 constant soil moisture
+  where land-atmosphere interactions are removed.
+
+Here what's plotted is the standard deviation of surface temperature
+in JJA. Red colors are the largest values.
+
+By comparing each of the two left panels,
+we isolate the effects of 'land-atmosphere interactions'
+
+%%
+
+We conclude that soil moisture (without knowing why at this point)
+is related to the temperature variability trends.
+
+
+- slide 'are GCMs reliable':
+
+But, hold on. 
+
+The two studies I just shown were based on GCM (climate model) simulations ...
+
+Can we trust them?
+
+And turns out that .... NO
+
+This is CMIP5 ensemble mean of summer surface temperature variance.
+
+I've got about 60 runs in there.
+
+For those of you that are working with Dargan ... That folder!
+
+So I compute that Var(T) in summer
+(means JJA north of the equator, DJF south of the equator)
+For all those models and then I average across the ensemble
+
+What's plotted is the ratio with the observed value 
+
+I used the U of Delaware data bank of gridded observations
+
+(Also, I will be showing a lot of ratios of things in my talk,
+ So, I think it is worth while to get familiar with the contour levels.
+
+1 in this case means perfect. The ensemble agrees with observations.
+Three levels up means that the numerator is twice as big as the denominator
+Correspondingly three levels down mean that the denominator is twice as big.
+And so on ... The contours are symmetric about a flip. )
+
+Grays here are perfect within 10%
+
+%%
+
+But here, we see that most of globe the typical has a 25% to 100% positive bias.
+The typical CMIP5 GCM has too much variance!
+
+
+- slide 'questions':
+
+So, we'll ask this simple question: 
+
+Could the same mechanism that produce the 21s century summertime temperature
+variance trends in the GCMs be responsible for the
+20th century summertime Var(T) biases in the GCMs???
+
+%%
+
+So for us, we'll use the fact the GCM have large errors in the 20th century
+as additional motivation for understanding how soil moisture
+and surface temperature are related
+
+With the intermediate step being land-atmosphere interactions.
+
+
+- slide 'surface energy budget':
+
+We'll start our investigation by looking at the surface energy budget.
+
+%%
+
+First, from the perspective of the land surface the 
+net shortwave radiation + longwave down can be considered a forcing.
+
+I will group those terms together for my talk call it the radiation forcing
+with symbol F.
+
+%%
+
+Then, we have a couple turbulent flux terms, latent and sensible heat.
+
+The latent heat flux is proportion to the evapotranspiration which includes
+all fluxes of water from land to atmosphere 
+(as you probably guessed, this be important in my talk).
+
+Unfortunately evapotranspiration is a very long word.
+I will sometimes refer to it as simply E.
+
+%%
+
+Then, upwelling longwave given by Stefan-Boltzmann 
+and finally a ground heat flux term, rounding out the budget.
+
+
+- slide 'Koster diagram':
+
+As promised, I'll talk a little bit more about E.
+
+And of course people have been thinking about these things long before me.
+
+One framework that comes up a lot is this one here. The Koster diagram.
+
+Which plots the latent heat flux normalized by net radiation at the surface
+as a function of soil moisture.
+
+
+It puts forward the concept of evapotranspiration regimes
+
+
+
+It puts forward a certain value of moisture (m critical) where above it 
+latent heat becomes independent of soil moisture 
+and controlled only by net radiation.
+
+E = E potential. This is the energy-limited E regime.
+
+Below this critical value of moisture, E is strongly constrained by 
+moisture availability.
+
+This is the moisture-limited E regime.
+
+This idea of two E regime is fundamental to my talk.
+It is worth remembering.
+
+%%
+
+But there is problem. What about temperature variability.
+
+The problem is: This is way too simple to be convincing
+
+The link to surface temperature is not explicit.
+It is only an 'all-things-being-equal' argument. 
+
+(By the way I called this the Koster diagram ...)
+
+
+- slide 'Feedback loops:
+
+Some have postulated that soil moisture is involved 
+in complex feedback loops with the atmosphere.
+
+And, I am not going through these in details.
+
+(If you are interested 
+ I invite you to read this 2010 review paper on soil moisture and climate)
+
+I only put the figures up to make a point.
+
+%%
+
+They are complicated.
+
+And they can only be quantified via
+GCM simulations, which as we've just shown, have large errors.
+
+When trying to understanding mechanisms involving, this is far from ideal!
+
+
+- slide 'something better':
+
+So, let's attempt to develop a better framework.
+
+Let's try to make the link between soil moisture, 
+land-atmosphere interactions
+and temperature variability explicit and quantifiable!
+
+(unlike Koster)
+
+While keeping things simple enough so that we don't have 
+to rely on GCM simulations to get an understanding.
+
+(unlike feedback loops)
+
+%%
+
+This is us today. 
+Lying in-between the conceptual and the complex.
+
+For lack of a better name, we'll call our framework, 
+a toy model for summertime surface temperature variability.
+
+
+- slide 'outline':
+
+So, let's have an outline.
+
+(The general goal of my project of my talk is to
+ investigate how soil moisture and Var(T) are related.)
+
+That was the introduction. That's done.
+
+Next, I will introduce the datasets that we will working with.
+We will also try to build insight on the problem from theses datasets.
+
+The next section is where we will show how we derived the toy model.
+
+Section four will be fun though.
+This is where we will dissect what the toy model tells us.
+
+And (if time permits) I will present one application for the toy model 
+concerning late 21st century climate.
+
+
+-------------------------------------------------------------------------------
+
+# Section 02
+
+- slide 'Datasets and definitions':
+
+All right. Let me first introduce the datasets.
+
+We'll be using 4. 2 GCMs and 2 Reanalyses.
+
+And this is not a mistake, I am using models.
+
+Observations of land surface variable such as soil moisture
+are not available at big spatial and long enough temporal scales 
+for climate studies like this one.
+
+So we have to resort to models data to get insights.
+
+I used two relatively old CMIP3 GCMs. (I apologize).
+The ... Last 30 years of historical runs. 
+The 2 reanalyses are the ... 
+
+We are focusing on summer!
+All plots and analysis that I will show next, will be for summer only.
+
+
+- slide 'temperature variance errors':
+
+Let's first evaluate the performance of the 4 datasets
+in terms of temperature variance.
+
+As with the CMIP5 ensemble that I showed earlier, 
+I am plotting the surface temperature variance as a ratio with observations.
+
+To no surprise, the reanalysis, on the right, 
+perform better than the GCMs on the left. (esp. Era-40)
+
+%% 
+
+Let me highlight a couple regions.
+
+GCMs feature hot spots of temperature variability where the variance 
+is overestimate by a factor of 2 or even 4.
+
+
+- slide 'Summertime mean soil moisture':
+
+I next plot the mean soil moisture in mm of water.
+
+This is the soil moisture in the top 10 cm.
+These four datasets don't have the same total soil depth.
+Picking the top 10 cm is a way to homogenize the results.
+
+Unfortunately here, we can't compare the datasets to observations 
+(because this is none at this scale).
+
+%%
+
+But by highlighting the same regions, the central US and Eastern Europe, 
+we note that the GCM are much dryer than the reanalyses,
+consistent with a link between soil moisture and Var(T).
+
+A nice result.
+
+
+- slide 'Correlations involving E':
+
+Another important result involve evapotranspiration
+
+I am going to show it using correlation coefficients 
+
+The top panel is between evapotranspiration 
+and radiation forcing (remember net ...) 
+
+And the bottom is between E and soil moisture.
+
+Here I am only showing hadgem1 data 
+(but the results are consistent across the four datasets).
+
+If you look at these long enough like I did ... You see that
+Over most land locations 
+E is "either" positively correlated with F or m
+But, almost never both at the same simultaneously.
+
+%%
+
+If we focus on two locations. The two yellow dots.
+
+We see that where E is negatively correlated with F 
+it is positively correlated with m.
+
+And vice-versa.
+
+Which may look quite strange ...
+Why would that be ? 
+
+How can E decrease when radiation (top panel) 
+  and moisture increase (bottom panel)?
+
+I will answer this question on the following slide
+
+But first, let's make a very important 
+association involving (you've guessed it) soil moisture.
+
+Let's assume that the positive correlations here happen
+to be causal.
+
+Let's propose that 
+E responds to soil moisture anomalies (like in Texas)
+in places where soils are 'dry' on average?
+(that would make sense right???)
+
+And what if E responds 
+to radiation anomalies in places where soils are 'wet'
+
+Like in the Koster Diagram!
+
+To me,
+the easiest way to separate dry from wet
+was to compute the global mean soil moisture value.
+
+And what I'll do next is to superpose on the plot here 
+the line where mean soil moisture
+is equal to that global mean soil moisture value.
+
+That way we will separate
+dryer than average soils from wetter than average soils.
+
+This will come out in green.
+
+%%
+
+And no, this is not the zero correlation contour. 
+It just works that well.
+
+Looking at the bottom panel :
+Dry soils (such as the central US, continental Eurasia, Australia)
+are associated with the 'moisture-limited' response 
+
+%%
+
+In contrast:
+Wet soils (such as tropics, high latitudes --- because of snow melt)
+are associated with the 'energy-limited' response
+
+!!
+We have just associated the two E regimes 
+to the summertime mean soil moisture. Not bad.
+!!
+
+
+- slide 'Correlations invoking E 2'
+
+Now to explain:
+the non-casual negative correlation
+
+Here, by the way, the top 2 panels are the same as on the previous slide. 
+
+For this, precipitation is key!
+
+Precipitation is both a source of soil moisture
+and a sink of radiation (through increased cloudiness)
+
+Now, the idea is to decompose radiation forcing anomalies
+(primes for anomalies)
+into a part explained by precipitation (P, ... L is latent heat of vaporization,
+making alpha the regression coefficient unitless).
+
+We will call the (orthogonal) residual F_0',
+the non-precipitating.
+
+For most of the globe, alpha is positive.
+Increased P decreases F !
+
+And now, let's correlate F_0 with E and this will be the bottom panel.
+
+%%
+
+Over dry soils like Texas in yellow, F_0 is orthogonal to E.
+
+Going back to the top panel:
+We conclude that only precipitating radiation anomalies 
+contribute to those negative correlations
+
+%%
+
+So, over dry soils, increased radiation is associated with
+less precipitating cloud and soil moisture deficit which decreases E!
+
+As pictured in the top panel
+
+In contrast, over wet soils, increased moisture is associated with
+more precipitating cloud -- an energy deficit
+
+Explaining the negative correlations (in the middle panel)
+
+
+This marks an important first step in building the toy model.
+To understanding our E behaves, 
+We must separate the radiative effect of P' from its effect on soil moisture.
+
+
+Was this clear?
+This is probably a good time for questions.
+
+
+-------------------------------------------------------------------------------
+
+# Section 03
+
+- slide 'toy model preliminaries':
+
+OK. Let's switch gears.
+
+Now, I will show you how we derived the toy model.
+
+In the next couple slides, 
+I will go through the assumptions and the method that I used.
+
+So, our goal is it the form an simple expression 
+for the surface temperature variance.
+
+Our tools are the surface energy budget,
+a soil moisture budget that I will show on the following slide, 
+
+And a parameterization scheme that of important land surface processes.
+
+We'll focus on inter-annual variability.
+
+We use monthly-averaged outputs
+
+Each variable is decomposed with respect to monthly climatology 
+This way we remove the annual cycle.
+
+
+- slide 'toy model preliminary results':
+
+So after decomposing every variable and assuming that the budgets
+balance in the mean,
+
+We obtain budget equations for the anomalies
+Two of them. One for surface energy and one for soil moisture.
+
+New terms in the moisture budget: P precipitation , R surface runoff 
+and I the infiltration of soil water downwards (which could also be positive)
+
+T is the 2-meter temperature allowing us to compare to observations.
+C_eff is the effective heat capacity of the land surface.
+
+%%
+
+We will use the top 10 cm soil moisture for our soil moisture budget.
+
+This turns out to be a very important step for this project
+
+%%
+
+As scale analysis reveals that both storage term are relatively small
+
+So, we're going to drop them!
+
+(this would not be the case, if m was taken to be the full soil column)
+
+%%
+
+Then, this allows us to define the ground heat flux and infiltration 
+(which are not model date archives), as to close out both budgets.
+
+
+- slide 'toy model assumptions':
+
+Schematically, this is what we are dealing with.
+
+The toy model presents the land-surface as subject
+to two forcings radiation and precipitation (in red)
+
+Two state variable T', m' 
+
+And six fluxes originating from the land surface (in blue)
+
+We'll make a 1st simplification by assuming that the both forcings are true
+forcings, independent of the land surface.
+
+And that the six blue arrows can parameterize 
+as functions of the forcing and state variables only.
+
+So four possible predictors for each of the blue arrows.
+
+So that the state variable will functions of the forcing only.
+
+That way we are 'closing' (if you want) the response of the land surface.
+
+
+- slide 'toy model method':
+
+Moving on the methodology.
+
+I thought the easiest way to go through the algorithm is by example.
+
+So, let's consider the ground heat flux 
+
+%%
+
+First let's regress G' onto the possible predictors. 
+We have 4!
+
+Every time we do this we get a coefficient 'a'
+and a regressions residual G_0'.
+Which can be different from one dataset to the next.
+
+And, the best predictor will the one the minimizes the variance of residual.
+
+%%
+
+If 1 predictor is not enough --> we repeat this procedure 
+for the residual 
+
+After some trial and error, I was able to 
+get better results by adding a second step
+
+%%
+
+Here is it:
+
+If T' is a candidate (if it appears to do OK ...)
+
+Substitute the parameterization (here G'= a T') into the 
+surface energy budget 
+
+Allowing us to evaluate the performance of the parameterization  
+against the datasets own' temperature output.
+
+The best parameterization will have the smallest RMS.
+
+And so on for the other 5 terms ...
+
+... Trial and errors mostly ...
+
+
+- slide 'toy model parameterization':
+
+OK, now that we set up the problem.
+Let me state the results.
+
+And therefore condensing 6 months of work in 1 slide.
+But anyway there is it.
+
+%%
+
+3 out of the 6 terms were easy to parameterize.
+
+Unambiguously, 1 predictor was enough for those terms.
+
+We'll parameterize the ground heat flux with T',
+Same upwelling longwave 
+and runoff with P'.
+
+%%
+
+We needed 2 predictor for infiltration m' and P'
+
+%%
+
+Next, I had to use a special scheme for evapotranspiration
+to model both regimes.
+
+If soils are moisture limited m' and F'
+
+If sols are energy limited F' only
+
+%%
+
+And finally, I got surprising result for the sensible heat flux
+
+Soil moisture was the best predictor. 
+
+The correlation is negative !
+
+(I did looked into why this would be the case ..
+ But it remains one of the unanswered questions of my project.)
+
+Regardless we had to use two predictors T' and m'
+
+Now, after each regression we get a coefficient ...
+
+
+
+- slide 'Term-by-Term'
+
+And after some algebra we get: an expression for T' and m' 
+
+They look like this!
+
+Simple. Algebraic ... No time derivative ...
+
+(I put a hat and a subscript tm for toy model to highlight that these are only
+approximation)
+
+It is useful to decompose F' again using P' (as we did previously)
+making the two forcing orthogonal.
+L is the latent heat of vaporization.
+
+let me quickly run through the coefficients ...
+
+%%
+
+Gamma has units of Wm-2K-1 a sort of surface temperature resistance
+
+%%
+
+Lambda regression evapotranspiration onto F
+
+%%
+
+Beta is ***
+
+%%
+
+We have a term proportional to soil moisture anomalies.
+Where soil moisture induces E and H_s of opposite signs.
+
+%%
+
+Then, by substituting m' into the expression for T', we an expression
+for T' as a function of the forcings only as desired.
+
+By doing so, all contributions of soil moisture to T'
+will be modulated by the coupling coefficient 
+(a ratio of time scales, chi for coupling).
+
+Importantly chi can be positive or negative!!
+
+
+- slide 'toy model performance':
+
+Now let's check how good of an approximation 
+the toy model is ...
+
+I am plotting a ratio of the toy model temperature variance to the each of the
+datasets' temperature variance. 
+
+A perfect toy model would have a ratio of one.
+
+We see that for most of the globe the toy model underestimate the datasets.
+
+%%
+
+More clearly, this is a histogram of all land points,
+
+In most grid points, the toy model has a negative bias of 20 to 40%
+
+Which is not bad. Right?
+
+
+-------------------------------------------------------------------------------
+
+# Section 04 
+
+- slide 'Interpreting the toy model':
+
+OK. Now that we have this relatively simple expression 
+for the temperature variance. 
+  
+It is a function of two forcings and a set of toy model coefficients.
+
+Let's try to dissect what it tell us.
+
+Unfortunately I won't have time to show all the analysis that I did.
+
+Namely answering these two equations.
+
+Do the toy model coefficients show dependence on mean-state variable ?
+
+It turns out that yes.
+
+Also, it turns out that the relative contributions of 
+two forcings to temperature variance depend on the location.
+
+%%
+
+Instead, I will try answer the following question 
+
+What is the role of soil moisture on temperature variability?
+
+Or really, as we will see, what is the role of mean soil moisture 
+and soil moisture anomalies on Var(T).
+
+
+- slide 'Role of land surface on Var(T)':
+
+And to the so ... 
+Let's try isolate the effect of land-surface in the toy model.
+
+So starting from the toy model expression for Var(T)
+
+%%
+
+Notice that by setting two coefficients to zero (in green)
+
+We get that the surface temperature variance is proportional
+to the external forcings.
+
+%%
+
+The next step is to define a unitless ratio that I called the 
+surface response response.
+
+So that if this ratio is equal to 1 
+we can conclude that the land surface has no effect on Var(T).
+
+And conversely if it differs from 1, the land surface does impact Var(T).
+
+And I will plot this ratio next. (for the 4 datasets)
+
+
+- slide 'Two regimes of Var(T)':
+
+This is what we get.
+
+We see that we have both values bigger and smaller than 1.
+
+Meaning that the land surface can either amplify or damped 
+Var(T)
+
+That is, we have 2 regimes of surface temperature variability
+as we had 2 evapotranspiration regimes.
+
+A land-surface amplified (in the brown )
+and a land-surface damped regime (the greens ).
+
+And next I will show that they are basically equivalent
+
+I will do this using soil moisture
+
+Let me superpose the line where soil moisture
+is equal to the global mean (separating dry and wet soils)
+
+This will come in yellow this time
+
+%%
+
+So, we see that 
+
+Dry soils amplify Var(T) 
+And wet soils damp Var(T) ...
+
+Correspondingly moisture-limited E amplifies Var(T)
+energy-limited E damps Var(T)
+
+Not bad at all
+
+
+- slide 'Land-surface amplified regime':
+
+Let me show you how land (soil moisture) 
+can amplify and damped variability.
+
+Starting in the land-surface amplified regime
+
+And let's look at orthogonal component of the forcings separately.
+
+I think this is the easiest way.
+
+A non-precipitating forcing anomaly by itself warm the surface
+(so it is in red)
+
+The amplified regime is associated with the moisture-limited 
+evapotranspiration does not respond to radiation.
+
+In the toy model that quantified by lambda.
+
+So the forcing in unattenuated. 
+
+%%
+
+Now, a precipitating forcing anomalies by itself cools through increased
+cloudiness. (a blue arrow)
+
+The increased in cloudiness does not impact E (again quantified by lambda)
+
+Also, it a source of soil moisture, which some of it runoffs and infiltrates.
+
+%%
+
+And this soil moisture anomalies generates increased evapotranspiration 
+and thus increased latent cooling.
+
+This is somewhat offset by sensible heat.
+
+But, the net effect of the turbulent fluxes is too cool. (again a blue arrow)
+
+(This is quantifies by chi in the toy model!)
+
+(blue forcing generates a blue flux) 
+We have an amplification of the effects of the forcing via soil moisture!
+
+(Flipping the sign given an anomalously low precip summer,
+
+two effects add up: ... )
+
+
+- slide 'Land-surface damped regime':
+
+Now in the damped regime:
+
+Remember this is associated with wet soils and the 
+energy-limited E 
+
+So here, increased radiation is damped by increased latent cooling.
+
+Red arrows and blue arrows oppose each other.
+
+%%
+
+And there is small additional effect for the precipitation
+
+Where a positive moisture anomaly reduces the sensible heat flux.
+
+By some mechanism that I don't know of.
+
+In the land-surface damped regime, soil moisture anomalies by themselves 
+generate temperature anomalies of the opposite sign.
+
+... Quite simple  ...
+
+
+- slide 'recipe for Var(T)':
+
+All this is probably a good time to have a summary slide ...
+
+Temperature variability is regime dependent:
+
+I describe this using 2 regimes:
+A land-surface amplified or the land-surface damped given by 
+this temperature response metric .
+
+%%
+
+In addition, both regimes have a long list of associations.
+
+Here they are!
+
+The amplified regime is associated 
+with dryer than average soils, 
+the moisture-limited E regime
+and m' leading to temperature anomalies of the same sign.
+
+In contrast, the damped regime is associated 
+with wetter than average soils, 
+the energy-limited E regime
+and m' leading to temperature anomalies of the opposite sign.
+
+And in a way, these statements are what my project is all about.
+
+How many ways can we say the same thing. I got to 5.
+
+With regards to soil moisture:
+
+** mean state soil moisture set the regime
+** depending on the regime, soil moisture anomalies amplify or damped 
+** temperature variability.
+
+The following question would be what control the magnitude 
+of the response in each regime (talk to me after)
+
+%% 
+
+-------------------------------------------------------------------------------
+
+# Section 05
+
+- slide 'toy model applications':
+
+OK. Now so now that we have this new framework for understanding 
+and that we understand what it tells.
+
+Let's apply it to specific problems.
+
+The first I thought of was 'attributing'
+
+I won't discuss it here (it is in the thesis though)
+
+Instead let's see what the toy model can tell us 
+about late 21st century projections.
+
+
+- slide 'SRES A1b':
+
+I used the same two GCMs as before and the A1b emission scenario.
+
+Here is the relative change of soil moisture.
+
+The black line is the (critical soil moisture value)
+separating both E regimes.
+
+%%
+
+On the right is the temperate variance change plotted as a ratio ...
+
+Let's focus in on the central US and Europe.
+
+Where soils in the hadgem1 dry up near the critical soil moisture value.
+
+%% 
+
+And correspondingly Var(T) increases as we would expect from
+a change of temperature variability regime.
+
+( Var(T) is the ccsm3 does not amplify ... Soil moisture does not decrease)
+
+( GCM projections are a strong function of 20th errors!)
+
+
+- slide 'AR4':
+
+OK. But that was only two GCMs.
+
+Here is the ... 
+
+The dots here represents regions where 80% of the models agree 
+on sign of change. 
+
+As in the hadgem1 the central US and Europe are expected to dry 
+in the coming century.
+
+Which would lead to increasing temperature variability in summer!
+
+
+-------------------------------------------------------------------------------
+
+# Section 06
+
+- slide 'main results':
+
+Main results: ...
+
+1. ...
+
+2. ... No need for complex feedback loops !!!
+
+3. ... 
+
+
+
+
+- slide 'unanswered question':
+
+Unanswered questions  ...
+
+1. ...
+
+2. ...
+
+3. ...
+
+-------------------------------------------------------------------------------

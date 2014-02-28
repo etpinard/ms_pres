@@ -1,0 +1,85 @@
+\begin{tikzpicture}[overlay]
+%
+% Diagram to complement the 'surface energy budget' slide
+%
+% ** must define the coordinate (O) before \input call **
+% ** as well as surface energy budget colors **
+%
+% requires the following tikz libraries:
+%   arrows, calc, decorations.pathmorphing, shapes
+% -------------------------------------------------------------------------------
+
+%% style definitions
+\tikzset{%
+  sfc/.style={thick,color=sfc},
+	rad/.style={very thick,->,
+              decorate,decoration={snake,segment length=17pt}},
+	flux/.style={very thick,->,
+               scale=1,midway,left,
+               decorate,decoration={coil,amplitude=4pt,segment length=7pt}},
+	ref/.style={very thick,->},
+  node-words/.style={scale=0.8,color=black},
+}
+% ------------------------------------------------------------------------------
+
+%% coordinate definitions
+\coordinate (O') at ($(O)+(3.5,0)$);
+
+\coordinate (sw-down) at ($(O)+(-0.2,1.5)$);
+\coordinate (sw-down') at ($(O)+(0.2,0.1)$);
+	
+\coordinate (sw-up) at ($(O)+(0.3,0.1)$);
+\coordinate (sw-up') at ($(O)+(0.7,1.5)$);
+	
+\coordinate (lw-down) at ($(O)+(1,1.5)$);
+\coordinate (lw-down') at ($(O)+(1,0.1)$);
+	
+\coordinate (e) at ($(O)+(2,0.1)$);
+\coordinate (e') at ($(O)+(2,1.5)$);
+	
+\coordinate (hs) at ($(O)+(2.5,0.1)$);
+\coordinate (hs') at ($(O)+(2.5,1.5)$); 
+
+\coordinate (lw-up) at ($(O)+(3.2,0.1)$);
+\coordinate (lw-up') at ($(O)+(3.2,1.5)$);
+
+\coordinate (g) at ($(O)+(2.8,-0.1)$);
+\coordinate (g') at ($(O)+(2.8,-0.7)$);
+% -------------------------------------------------------------------------------
+
+%% drawing commands
+
+% draw surface line
+\uncover<2->{%
+%
+\draw[sfc] (O) -- (O'); }
+
+% draw F arrows
+\uncover<2->{%
+%
+\draw[rad,color=F] (sw-down) -- (sw-down') 
+  node[node-words,midway,xshift=-2ex] {$\Fsw\down$}; 
+\draw[ref,color=F] (sw-up) -- (sw-up') 
+  node[node-words,yshift=0ex,xshift=-2.5ex] {$\Fsw\up$}; 
+\draw[rad,color=F] (lw-down) -- (lw-down') 
+  node[node-words,midway,xshift=2.5ex] {$\Flw\down$}; }
+
+% draw E and H_s arrows
+\uncover<3->{%
+%
+\draw[flux,color=E] (e) -- (e') 
+  node[node-words,yshift=1.5ex,xshift=1.7ex] {$L\,E$}; 
+\draw[flux,color=Hs] (hs) -- (hs') 
+  node[node-words,yshift=1.5ex,xshift=1.7ex] {$H_s$}; }
+
+% draw Flu and G arrows
+\uncover<4->{%
+%
+\draw[rad,color=Flu] (lw-up) -- (lw-up') 
+  node[node-words,yshift=1.5ex,xshift=0.5ex] {$\Flu$}; 
+\draw[rad,color=G] (g) -- (g') 
+  node[node-words,midway,xshift=-1.5ex] {$G$}; }
+
+% -------------------------------------------------------------------------------
+
+\end{tikzpicture}

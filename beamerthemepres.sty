@@ -1,0 +1,206 @@
+% 
+% beamer theme 'pres'
+%
+% -------------------------------------------------------------------------------
+
+%% Define colors
+\colorlet{colone}{DarkGreen}
+\colorlet{coltwo}{DarkRed}
+\colorlet{colfl}{DodgerBlue}
+\colorlet{colbg}{BlanchedAlmond}
+% -------------------------------------------------------------------------------
+
+%% load required packages 
+\usepackage[normalem]{ulem}   % underline (for title)
+\usepackage{fancybox}         % box around text (for itemize) 
+\usepackage{xargs}            % to enable optional arguments
+% -------------------------------------------------------------------------------
+
+% Line spacing 
+\linespread{1.1}										
+
+% Background color
+\setbeamercolor{background canvas}{bg=colbg}
+
+% Math font
+\usefonttheme[onlymath]{serif}
+
+% Margins
+\setbeamersize{text margin left=1em,text margin right=1em}
+
+% No navigation buttons
+\beamertemplatenavigationsymbolsempty
+% -------------------------------------------------------------------------------
+
+%% Frame title color and style
+
+\newcommand{\coluline}{\bgroup\markoverwith
+  {\textcolor{colfl}{\rule[-0.65ex]{2pt}{1.2pt}}}\ULon}
+
+\setbeamercolor{frametitle}{fg=colone}
+\setbeamerfont{frametitle}{family=\bf,size=\LARGE}
+\setbeamertemplate{frametitle}{%
+  \vspace{0.2cm}\coluline{\strut\insertframetitle\strut\;}}
+
+% -------------------------------------------------------------------------------
+
+%% Custom Foot line 
+
+\setbeamercolor{myfooter}{fg=colone,bg=colfl!80}
+\setbeamerfont{myfooter}{family=\bf,size=\scriptsize}
+\newlength{\myht}
+\setlength{\myht}{1ex}
+\newlength{\mydp}
+\setlength{\mydp}{0.8ex}
+\newlength{\mycorr}
+\setlength{\mycorr}{-0.45ex}
+
+\defbeamertemplate*{footline}{prestheme}
+{%
+\leavevmode%
+\hbox{%
+\begin{beamercolorbox}[wd=.34\paperwidth,ht=\myht,dp=\mydp,center]
+{myfooter}% 
+\usebeamerfont{myfooter}{%
+  \raisebox{\mycorr}{\strut\insertsectionnumber.\quad\insertsectionhead\strut}}
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.34\paperwidth,ht=\myht,dp=\mydp,center]
+{myfooter}% 
+%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.34\paperwidth,ht=\myht,dp=\mydp,center]
+{myfooter}%
+\usebeamerfont{myfooter}{\hspace*{2.7cm}
+  \raisebox{\mycorr}{\strut\insertframenumber{} / \inserttotalframenumber\strut}}
+\end{beamercolorbox}
+}%
+\vskip0pt%
+}
+
+\defbeamertemplate*{footline}{presthemenonumber}
+{%
+\leavevmode%
+\hbox{%
+\begin{beamercolorbox}[wd=.34\paperwidth,ht=\myht,dp=\mydp,center]
+{myfooter}% 
+\usebeamerfont{myfooter}{\strut\insertsectionhead\strut}
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.34\paperwidth,ht=\myht,dp=\mydp,center]
+{myfooter}% 
+%
+\end{beamercolorbox}%
+\begin{beamercolorbox}[wd=.34\paperwidth,ht=\myht,dp=\mydp,center]
+{myfooter}%
+\usebeamerfont{myfooter}
+\hspace*{3cm}\raisebox{-0.3ex}{}
+\end{beamercolorbox}
+}%
+\vskip0pt%
+}
+
+% -------------------------------------------------------------------------------
+
+%% Custom title page 
+
+\setbeamercolor{title}{fg=colone}
+\setbeamerfont{title}{family=\bf,size=\LARGE}
+
+\newcommand{\mytitlepage}[1]{%
+  \setbeamertemplate{footline}[presthemenonumber]
+  \begin{frame}
+      \titlepage
+  \end{frame}
+  \setbeamertemplate{footline}[prestheme]
+  \addtocounter{framenumber}{-1}
+  }
+
+% -------------------------------------------------------------------------------
+
+%% Custom itemize, define boxed item (\boxitem)
+
+\setlength{\leftmargini}{2.0em}
+\let\olditem\item
+
+% default style
+\setbeamertemplate{itemize item}{\raisebox{0.2ex}{\decoone}\enskip}
+\setbeamertemplate{itemize subitem}{\large$\diamond$\enskip}
+\setbeamercolor{itemize item}{fg=colfl}
+\setbeamercolor{itemize subitem}{fg=colfl}
+
+% item styles
+\renewcommand{\item}{\setlength{\itemsep}{1em}\olditem}
+\newcommand{\itemDiamond}{\olditem[\scalebox{1.3}{$\diamond$}]}
+\newcommand{\itemImply}{%
+  \setlength{\itemsep}{1.5em}
+  \olditem[\color{coltwo}\scalebox{1.3}{$\Longrightarrow$}]}
+
+% boxed item
+\newcommandx*{\boxitem}[3][1=0.88,2={}]{%
+  \item#2 \setlength{\fboxsep}{10pt} \Ovalbox{\parbox{#1\linewidth}{#3}}}
+
+% tikz replaceable items (node 'item' is reserved for this!)
+% ** sent #3 with '\parbox' if more than 1 line **
+\newcommand{\tikzitemMark}{%
+  \tikz[anchor=base, baseline, overlay, remember picture] \node (item) {};}
+\newcommandx*{\tikzitem}[3][1=<1->,2={}]{%
+  \uncover#1{\node[{#2},xshift=-1em] at (item) 
+  {\textcolor{colfl}{\raisebox{0.2ex}{\decoone}}\quad {#3}} ;}}
+\newcommandx*{\tikzitemImply}[3][1=<1->,2={}]{%
+  \uncover#1{\node[{#2},xshift=-1em] at (item) 
+  {\textcolor{coltwo}{\scalebox{1.3}{$\Longrightarrow$}}\quad {#3}} ;}}
+
+% -------------------------------------------------------------------------------
+	
+% Include graphics with tikz node (requires 'remember picture' option)
+\newcommand{\tikzfig}[2]{%
+  \tikz{ \node (#1) {\includegraphics[#2]{#1}};}}
+%\newcommand{\tikzfig}[2]{%
+%  \tikz{ \node[anchor=south west, inner sep=0pt] (#1) {\includegraphics[#2]{#1}};}}
+% -------------------------------------------------------------------------------
+
+% Set tikz marks at current location
+\newcommand{\tikzmark}[1]{%
+  \tikz[anchor=base, baseline, overlay, remember picture] \node ({#1}) {};}
+% -------------------------------------------------------------------------------
+
+% Set tikz marks around terms in equations
+\newcommandx*{\tikzeqMark}[3][1={}]{%
+  \tikz[anchor=base, baseline] \node[#1] ({#2}) {$#3$};}
+% -------------------------------------------------------------------------------
+
+% Shade figure except truncated section(s) 
+% ** send #3 in normalized coordinate **
+\newcommandx*{\tikzShadeFig}[3][1=<1->]{%
+  \begin{scope}[x={($(#2.east)-(#2.west)$)},%
+                y={($(#2.north)-(#2.south)$)},%
+                shift=(#2.south west)]
+    \path#1[fill=gray!20,opacity=0.7,even odd rule,->]
+      (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle 
+      {#3};
+ \end{scope} }
+% -------------------------------------------------------------------------------
+
+% Cover figure except truncated section(s) 
+% ** send #3 in normalized coordinate **
+\newcommandx*{\tikzCoverFig}[3][1=<1->]{%
+  \begin{scope}[x={($(#2.east)-(#2.west)$)},%
+                y={($(#2.north)-(#2.south)$)},%
+                shift=(#2.south west)]
+    \path#1[fill=colbg,even odd rule,->] {#3};
+ \end{scope} }
+% -------------------------------------------------------------------------------
+
+% Colored and bold text
+\newcommand{\textcolorbf}[2]{\textcolor{#1}{\bf #2}}
+% -------------------------------------------------------------------------------
+
+% Tikz styles
+\tikzset{highlight/.style={ultra thick,color=coltwo}}
+% -------------------------------------------------------------------------------
+
+%% Custom bibliography
+
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+% -------------------------------------------------------------------------------

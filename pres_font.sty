@@ -1,0 +1,65 @@
+%
+% pres_font.sty
+%
+% LaTeX font choices for my MS presentation
+%
+% -------------------------------------------------------------------------------
+
+\ProvidesPackage{pres_font}
+
+
+%% Font options and additional packages
+
+\usepackage[widespace]{fourier} % fourier (widespace) for math
+\usepackage{avant}              % avant for sans serif
+
+% note that 'fourier.sty' calls '[T1]{fontenc}' by default
+% -----------------------------------------------------------------------------
+
+%% Import new math alphabets
+
+%	computer modern mathcal font 
+\DeclareMathAlphabet{\mcal}{OMS}{cmsy}{m}{n}
+
+%	computer modern mathcal font in bold
+\DeclareMathAlphabet{\mcalbf}{OMS}{cmsy}{b}{n}
+% -------------------------------------------------------------------------------
+
+%% Redefine some math symbols
+
+\renewcommand{\partial}{\varpartialdiff}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+% -----------------------------------------------------------------------------
+
+%% Redefine some Greek characters
+
+% command to raise symbol in display and text modes
+% this uses \protect to ensure compatibility in e.g. figure captions 
+% MAKE a 2nd argument for the height ...
+\newcommand{\raisesymb}[1]{%
+  {\mathchoice{\protect\raisebox{0.3ex}{$\displaystyle{#1}$}}
+		 {\protect\raisebox{0.3ex}{${#1}$}}
+		 {\scriptstyle#1}
+		 {\scriptscriptstyle#1}}}
+
+% raise gamma but first rewriting it 
+\let\oldgamma\gamma
+\renewcommand{\gamma}{\raisesymb{\oldgamma}}
+
+% raise psi 
+\let\oldpsi\psi
+\renewcommand{\psi}{\raisesymb{\oldpsi}}
+	
+% raise chi
+\let\oldchi\chi
+\renewcommand{\chi}{\raisesymb{\oldchi}}
+	
+% raise and interchange phi and varphi  
+\let\oldphi\phi
+\let\oldvarphi\varphi
+\renewcommand{\phi}{\raisesymb{\oldvarphi}}
+\renewcommand{\varphi}{\raisesymb{\oldphi}}
+	
+% CAREFUL the \let\old---\--- step works like a pointer!
+% -----------------------------------------------------------------------------

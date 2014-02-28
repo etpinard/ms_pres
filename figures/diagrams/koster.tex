@@ -1,0 +1,85 @@
+\begin{tikzpicture}
+%
+%% Add to main .tex file with (resized to fit line width)
+%
+% \resizebox{\linewidth}{!}
+%	 {\input{/path/to/this/file/evapofrac}}
+%
+% Please the following libraries in the preamble via \usetikzlibrary:
+% arrows, calc
+% -----------------------------------------------------------------------------
+
+		% Setting line styles
+	\tikzset{ 
+		axis/.style={very thick,->},
+		tick/.style={very thick},
+		func/.style={thick,color=blue},
+		delim/.style={very thick,dotted,color=gray},
+		label/.style={font=\sf},
+		label2/.style={font=\sf,scale=0.9},
+	}
+
+		% Origin and axes coordinates
+	\coordinate (O) at (0,0);			
+	\coordinate (X) at (9,0);
+	\coordinate (Y) at (0,3.6);
+
+
+		% Tick mark coordinates
+	\coordinate (wilt) at (2,0);
+	\coordinate (crit) at (5,0);
+	\coordinate (EFmax) at (0,3);
+
+		% Tick command shortcut
+	\coordinate (xtick) at (0,0.1);
+	\coordinate (ytick) at (0.2,0);
+	\newcommand{\Xtick}[2]{
+			\draw[tick] ($(#1)-(xtick)$) -- ($(#1)+(xtick)$);
+			\node at ($(#1)-3.5*(xtick)$) {#2};}
+	\newcommand{\Ytick}[2]{
+			\draw[tick] ($(#1)-(ytick)$) -- ($(#1)+(ytick)$);
+			\node[font=\small] at ($(#1)-3.5*(ytick)$) {#2};}
+
+% -----------------------------------------------------------------------------
+
+		% Drawing the axes
+	\draw[axis] (O) -- (X)
+		node[below right] {$m$};
+	\draw[axis] (O) -- (Y)
+		node[above left] 
+		%{$\lambda\,\equiv\,\raisebox{0.3ex}{$LE$}\big/\raisebox{-0.3ex}{$F$}\,$};
+		{$\raisebox{0.3ex}{$LE$}\big/\raisebox{-0.3ex}{$F\subt{net}$}\,$};
+	\node[scale=1] at ($(O)-2*(xtick)-2*(ytick)$) {$0$};
+		
+  % Drawing the delimitation lines
+%	\draw[delim] (wilt) -- ($(wilt)+(Y)$);
+	\draw[delim] (crit) -- ($(crit)+(Y)$);
+
+  % Drawing the horizontal ticks
+	\Xtick{wilt}{$m\subt{wilting}$}
+	\Xtick{crit}{$m\subt{critical}$}
+
+  % Drawing the vertical tick
+	\Ytick{EFmax}
+  {$\frac{LE\subt{pot}}{F\subt{net}}$}
+
+  % Drawing the function
+	\draw[func] (O) -- (wilt);
+	\draw[func] (wilt) -- ($(crit)+(EFmax)$);
+	\draw[func] ($(crit)+(EFmax)$) -- ($(X)+(EFmax)$);
+
+
+  % Labeling the different regimes
+	\node[label] at ($0.5*(wilt)+(Y)$) {};
+	\node[label,align=center] at ($(wilt)+(0.25,0)+(Y)$) 
+    {\textbf{Moisture-limited}};
+	\node[label,align=center] at ($0.5*(crit) + 0.5*(X) + (Y)$) 
+    {\textbf{Energy-limited}};
+
+%  % Labeling with variance
+%	\node[label2,scale=1.2,xshift=2em] at ($0.5*(wilt)+0.4*(Y)$) 
+%				{$\Var(T)$ large};
+%	\node[label2,scale=1.2] at ($0.5*(crit)+0.5*(X)+0.4*(Y)$) 
+%				{$\Var(T)$ small};
+
+\end{tikzpicture}
